@@ -1,0 +1,12 @@
+<view style='background-color=#feff4'> 
+  <view wx:for="{{array}}"class='all_list' id='{{item.id}}'wx:if="{{item.isend==1}}">
+      <image class='all_image' src='{{item.userid}}'></image>
+      <view style='width:600rpx;'>
+      <view class='itemHead'>{{item.head}}</view>
+      <view class='actText'>{{item.text}}</view>
+      <view class='actText'>{{item.count}}人已申请加入</view>
+      </view>
+      <button class='iscard' bindtap='end' id='{{item.id}}'>退出</button>
+    </view>
+</view>   
+   

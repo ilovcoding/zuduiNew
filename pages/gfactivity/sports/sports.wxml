@@ -1,0 +1,11 @@
+<!--pages/card/getcard.wxml-->
+<view class='head'>
+    <text>签到打卡</text>
+</view>
+
+<form bindsubmit="bindFormSubmit">
+<textarea class='content' placeholder='今日步行了{{sport}}步，打卡可以获10个积分哦（10000步以上才可以打卡）' name="textarea"/>
+<view class='line'></view>
+
+<button form-type="submit" size='mini' type='primary'>打卡</button>
+</form>

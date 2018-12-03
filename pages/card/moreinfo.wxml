@@ -1,0 +1,5 @@
+<!--pages/card/moreinfo.wxml-->
+<view class='cardinfo'>{{cardtext}}</view>
+<view wx:for='{{src}}' style='display:inline-block'>
+  <image src='{{item}}'></image>
+</view>

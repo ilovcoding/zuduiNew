@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/gfactivity/gfactivity",
+    "pages/my/my",
+    "pages/message/message",
+    "pages/card/card",
+    "pages/create/create",
+    "pages/teaminfo/teaminfo",
+    "pages/my/wdfb",
+    "pages/my/wdcy",
+    "pages/my/mly",
+    "pages/card/getcard",
+    "pages/card/cardinfo",
+    "pages/card/day",
+    "pages/card/moreinfo",
+    "pages/teaminfo/wantjoin",
+    "pages/my/userinfo",
+    "pages/gfactivity/knowledge/knowledge",
+    "pages/gfactivity/early/early",
+    "pages/gfactivity/sports/sports",
+    "pages/gfactivity/study/study",
+    "pages/gfactivity/story/story",
+    "pages/gfactivity/politics/politics",
+    "pages/gfactivity/associate/associate",
+    "pages/gfactivity/knowledge/answer/answer",
+    "pages/gfactivity/study/wantstudy/wantstudy",
+    "pages/gfactivity/study/studyinfo/studyinfo",
+    "pages/gfactivity/story/wantstory/wantstory",
+    "pages/gfactivity/story/storyinfo/storyinfo",
+    "pages/gfactivity/associate/info/info",
+    "pages/gfactivity/associate/want/want",
+    "pages/gfactivity/politics/wantstudy/wantstudy",
+    "pages/gfactivity/politics/studyinfo/studyinfo",
+    "pages/my/mycount/mycount"
+  ],
+  "window": {
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fb9b00",
+    "navigationBarTitleText": "组队打卡小程序"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#fe8e07",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/message/message",
+        "iconPath": "images/xinxi.png",
+        "selectedIconPath": "images/xinxi-on.png",
+        "text": "信息"
+      },
+      {
+        "pagePath": "pages/card/card",
+        "iconPath": "images/daka.png",
+        "selectedIconPath": "images/daka-on.png",
+        "text": "打卡"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/wo.png",
+        "selectedIconPath": "images/wo-on.png",
+        "text": "我"
+      }
+    ]
+  }
+}

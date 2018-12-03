@@ -1,0 +1,26 @@
+<view class='back'></view>
+<view class='background'>
+  <view class='head'>{{knowledgehead}}</view>
+  <view class='question'>
+    <text class='{{sty==1?"yestoday":"today"}}' catchtap='today' >今日题目</text>
+    <text class='middle'>/</text>
+    <text class='{{sty==2?"yestoday":"today"}}' catchtap='yestoday'>昨日题目及答案</text>
+  </view>
+  <view class='questionbox'>
+    <text>{{question}}</text>
+  </view>
+  <view class='answerbox'>
+    <text>{{answer}}</text>
+  </view>
+  <view class='together' wx:if='{{istoday}}'>共有{{num}}人挑战该题，一起吗?</view>
+  <view class='vbutton' wx:if='{{istoday}}'>
+    <button type='primary' size='mini' disabled='{{disabled}}' catchtap='toanswer'>我要挑战</button>
+  </view>
+  <view class='answerArr' wx:if='{{!istoday}}'>
+    <view wx:for='{{answerArr}}' >
+      <image src='{{item.avatarUrl}}'></image>
+      <text>{{item.name}}</text>
+      <text>{{item.answer}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,121 @@
+/* pages/gfactivity/knowledge/knowledge.wxss */
+
+.head {
+  padding-top: 20rpx;
+  margin-left: 28rpx;
+  color: #000;
+  font-size: 36rpx;
+  font-weight: bolder;
+}
+
+.question, .together {
+  margin-left: 28rpx;
+  color: #5f6874;
+  font-size: 28rpx;
+  font-weight: bolder;
+}
+
+.yestoday {
+  color: #fca412;
+}
+
+.middle {
+  margin-left: 14rpx;
+  margin-right: 14rpx;
+}
+
+.questionbox {
+  margin-top: 28rpx;
+  background: #c2c2c2;
+  margin-left: 20rpx;
+  border: 2rpx #c2c2c2 solid;
+  border-radius: 8rpx;
+  line-height: 48rpx;
+  width: 400rpx;
+  position: relative;
+}
+
+.questionbox text {
+  margin-left: 20rpx;
+  word-break: break-all;
+  font-size: 28rpx;
+  font-weight: bolder;
+}
+
+.questionbox:after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 14rpx;
+  left: -30rpx;
+  border: solid 16rpx;
+  border-color: transparent #c2c2c2 transparent transparent;
+}
+
+.answerbox {
+  float: right;
+  margin-right: 40rpx;
+  margin-top: 28rpx;
+  background: #029400;
+  margin-left: 20rpx;
+  border: 2rpx #029400 solid;
+  border-radius: 8rpx;
+  line-height: 48rpx;
+  width: 400rpx;
+  position: relative;
+}
+
+.answerbox text {
+  margin-left: 20rpx;
+  word-break: break-all;
+  font-size: 28rpx;
+  font-weight: bolder;
+}
+
+.answerbox:after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 14rpx;
+  right: -30rpx;
+  border: solid 16rpx;
+  border-color: transparent transparent transparent #029400;
+}
+
+.vbutton {
+  margin-top: 100rpx;
+  padding-left: 300rpx;
+}
+
+.together {
+  margin-top: 300rpx;
+}
+
+.answerArr {
+  background: #fff;
+  margin-top: 150rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
+}
+
+.answerArr image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin: 10rpx;
+  margin-left: 40rpx;
+  float: left;
+}
+.answerArr text{
+  color: #c2c2c2;
+  font-size: 24rpx;
+  font-weight: bolder;
+  margin-left: 20rpx;
+  text-align: center;
+}
+.answerArr view{
+  height: 70rpx;
+}

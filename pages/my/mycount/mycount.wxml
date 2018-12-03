@@ -1,0 +1,4 @@
+<view wx:for="{{array}}" class='list'>
+  <image src='{{item.avatarUrl}}'></image>
+  <text>{{item.name}}{{item.count}}积分</text>
+</view>

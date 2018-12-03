@@ -1,0 +1,26 @@
+/* pages/my/userinfo.wxss */
+
+.join_head{
+    margin: 50rpx;
+    text-align: center;
+    font-weight: bold;
+}
+
+.join_info{
+    margin: 10rpx;
+    padding: 10rpx;
+    font-size: 24rpx;
+    font-weight: bold;
+    text-align: center;
+    border: solid 10rpx silver;
+    width: 550rpx;
+    margin-left: 100rpx;
+}
+
+.phone{
+    margin: 20rpx;
+    margin-left: 160rpx;
+    font-size: 20rpx;
+    width: 200rpx;
+    height: 50rpx;
+}

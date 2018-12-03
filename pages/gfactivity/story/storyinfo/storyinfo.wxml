@@ -1,0 +1,8 @@
+<!--pages/card/getcard.wxml-->
+<view class='head'>
+  <text>{{storyType}}</text>
+  <text>{{title}}</text>
+</view>
+<text class='gfinfo'>{{study}}</text>
+<view class='line'></view>
+<image src='{{imgUrl}}'></image>

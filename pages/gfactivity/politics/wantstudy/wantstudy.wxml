@@ -1,0 +1,19 @@
+<!--pages/card/getcard.wxml-->
+<view class='head'>
+  <text>签到打卡</text>
+  <text>{{char}}/1000字</text>
+</view>
+
+<form bindsubmit="bindFormSubmit">
+  <textarea class='content' placeholder='分享400-1000字的新闻内容和感受' name="textarea" value='{{politics}}' maxlength='1000' bindinput='checklength'/>
+  <view class='line'></view>
+  <view class='pic'>
+    <image src='{{itemImg}}' catchtap='delImg'></image>
+    <view wx:if='{{plus}}'>
+      <image src='/images/plus.png' bindtap='choose' class='pluspic'></image>
+    </view>
+  </view>
+
+  <!-- <button type='primary'form-type="submit" bindtap='cardinfo'>打卡发布</button> -->
+  <button form-type="submit" class="btn">发布</button>
+</form>

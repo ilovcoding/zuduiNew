@@ -1,0 +1,32 @@
+.iscard {
+    font-size: 25rpx;
+    color: #1aad19;
+    width: 122rpx;
+    height: 62rpx;
+    position: absolute;
+    top: 30rpx;
+    right: 20rpx;
+    text-align: center;
+    border: 3rpx #1aad19 solid;
+}
+
+.iscard2 {
+    font-size: 25rpx;
+    color: #ffffff;
+    width: 122rpx;
+    height: 62rpx;
+    position: absolute;
+    top: 100rpx;
+    right: 20rpx;
+    text-align: center;
+    border: 1rpx #1aad19 solid;
+    background-color: #1aad19
+}
+.gfactive{
+  color:#5f6874 ;
+  font-size: 30rpx;
+  font-weight: bolder;
+  position: absolute;
+  left: 250rpx;
+  top: 60rpx;
+}

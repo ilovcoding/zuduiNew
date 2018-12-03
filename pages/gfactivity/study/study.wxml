@@ -1,0 +1,61 @@
+<!--pages/teaminfo/teaminfo.wxml-->
+<view class='back'></view>
+<view class='background'>
+  <view class='gftitle'>每日学习</view>
+  <view class='gftime'>
+    <text>发布人  阿理和苑儿</text>
+  </view>
+  <swiper autoplay='true' interval='3000' circular='true' duration='2000'>
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='gfinfo'>
+    学习打卡是督促同学们 养成按时完成学习计划 好习惯的小活动哦，快 和阿理分享一下今天学 习的动态吧 游戏规则： 1.上传一张每日学习的 图片 2.图片包括 当日学习计划和完成情 况、学习笔记、单词软件截图、课外阅读以及 当日学习反思等 积分规则：每天打卡可 获得积分5分，学习类打卡天数越多获得分数越多（例如打卡的第三天可获得积分5+3=8 分）
+  </view>
+  <view class='gfjoin'>
+    共有{{num}}人加入学习你要加入吗？
+  </view>
+  <view class='card'>
+    <view wx:for='{{we_img}}' class='weimg'>
+      <image src='{{item.gfactive.avatarUrl}}'></image>
+    </view>
+  </view>
+  <button type='primary' size='mini' style='margin-left:200rpx;margin-top:40rpx;width:292rpx;height:60rpx' catchtap='wantstudy'>我爱学习</button>
+
+
+  <view>
+    <view class='pos1'>
+      <view class='{{phbstyle==0?sty1:sty2}}' bindtap='change' data-color='0'>学习动态</view>
+    </view>
+    <view class='pos2'>
+      <view class='{{phbstyle==1?sty1:sty2}}' bindtap='change' data-color='1'>学习榜</view>
+    </view>
+    <text class='line'></text>
+  </view>
+  <view wx:if="{{dt}}">
+    <view class='hobby' wx:for="{{dtarr}}" data-info='{{item}}' catchtap='studyInfo'>
+      <image src='{{item.avatarUrl}}'></image>
+      <view style='margin-top:20rpx'>
+        <text style='margin-right:20rpx;'>{{item.name}}</text>
+        <text>{{item.time}}打卡</text>
+        <view>{{item.study}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{phb}}">
+    <view class='phb_card'>
+      <text>
+        你已经坚持打卡{{card_day}}天啦~
+    </text>
+    </view>
+    <view wx:for='{{phb_arr}}' class='phb_info'>
+      <!-- <image src='../../images/1.png'></image> -->
+      <image src='{{item.gfactive.avatarUrl}}'></image>
+      <text class='text1'>{{item.gfactive.name}}</text>
+      <text class='text2'>坚持打卡{{item.total}}天</text>
+    </view>
+  </view>
+</view>

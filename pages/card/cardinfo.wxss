@@ -1,0 +1,136 @@
+/* pages/card/cardinfo.wxss */
+
+.title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-left: 40rpx;
+  margin-top: 50rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #5f6874;
+  margin-left: 40rpx;
+  font-weight: bolder;
+  margin-top: 20rpx;
+}
+
+.time text {
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.swi {
+  margin-top: 50rpx;
+  height: 400rpx;
+}
+.swi swiper-item{
+  height: 400rpx;
+}
+.swi image{
+  width: 100%;
+  height: 400rpx;
+}
+.actinfo {
+  font-size: 24rpx;
+  color: #5f6874;
+  margin: 30rpx;
+  width: 690rpx;
+  word-break: all;
+  text-indent: 48rpx;
+  font-weight: bolder;
+}
+
+.card image {
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+
+
+
+
+.more {
+  color: #3f51b5;
+  position: relative;
+  float: right;
+  font-size: 28rpx;
+}
+
+.head {
+  width: 100%;
+  padding: 20rpx;
+  margin-left: 280rpx;
+}
+
+.head image {
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.phb_card {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.phb_info {
+  position: relative;
+  border-top: 1rpx silver solid;
+  height: 80rpx;
+}
+
+.phb_info image {
+  display: inline-block;
+  margin-left: 40rpx;
+  margin-top: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.phb_info .text1 {
+  display: inline-block;
+  position: absolute;
+  font-size: 28rpx;
+  font-weight: bold;
+  top: 20rpx;
+  left: 150rpx;
+}
+
+.phb_info .text2 {
+  display: inline-block;
+  position: absolute;
+  font-size: 28rpx;
+  font-weight: bold;
+  top: 20rpx;
+  left: 300rpx;
+}
+
+.getcard {
+  position: absolute;
+  bottom: 280rpx;
+  right: 30rpx;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background-color: rgba(255, 152, 0, 1);
+  text-align: center;
+}
+
+.getcard text {
+  display: block;
+  color: #fff;
+  width: 140rpx;
+  height: 140rpx;
+  font-size: 30rpx;
+  margin-top: 60rpx;
+  margin-left: 10rpx;
+}
+
+.weimg {
+  display: inline;
+}

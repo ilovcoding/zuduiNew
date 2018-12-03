@@ -1,0 +1,59 @@
+/* pages/card/getcard.wxss */
+.head{
+    background: 	#F5F5F5;
+    width: 100%;
+    height: 88rpx;
+}
+
+.head text{
+    display: inline-block;
+    color: #666666;
+    margin:20rpx;
+    font-size: 28rpx
+}
+.content{
+    margin: 20rpx;
+    width:716rpx;
+    height: 300rpx;
+    color: #c2c2c2;
+    font-weight: bolder;
+    font-size: 28rpx
+}
+.line{
+    background: #efeff4;
+    width: 100%;
+    height: 20rpx;
+}
+
+
+button{
+  margin-top: 50rpx;
+  margin-left: 300rpx;
+}
+
+.answerArr {
+  background: rgb(245, 245, 245);
+  margin-top: 150rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
+}
+
+.answerArr image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin: 10rpx;
+  margin-left: 40rpx;
+  float: left;
+}
+.answerArr text{
+  color: #111111;
+  font-size: 24rpx;
+  font-weight: bolder;
+  margin-left: 20rpx;
+  text-align: center;
+}
+.answerArr view{
+  height: 70rpx;
+}

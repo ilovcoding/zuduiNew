@@ -1,0 +1,13 @@
+
+.cardinfo{
+    margin: 50rpx;
+    color: #c2c2c2;
+    font-size: 40rpx;
+}
+
+image{
+    display: inline-block;
+    margin-left: 50rpx; 
+    width: 300rpx;
+    height: 300rpx;
+}

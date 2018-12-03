@@ -1,0 +1,17 @@
+<!--pages/my/userinfo.wxml-->
+<view class='join_head'>~加入者名单~</view>
+<view wx:for="{{user}}" class='join_info'>
+    <view>
+        <text>姓名：</text>
+        <text>{{item.name}}</text>
+    </view>
+    <view>
+        <text>手机：</text>
+        <text>{{item.tel}}</text>
+    </view>
+    <view>
+        <text>QQ：</text>
+        <text>{{item.qq}}</text>
+    </view>
+    <button type='primary' class='phone' data-phone='{{item.tel}}' catchtap='call'>拨打电话</button>
+</view>

@@ -1,0 +1,58 @@
+<view class='background'>
+  <view class="title">{{item.head}}</view>
+  <view class='time'>
+    <text>发布人{{item.name}}</text>
+    <text>发布时间{{fbtime}}</text>
+  </view>
+  <view class='time'>
+    你已经坚持打卡{{card_day}}天啦，排名第{{gread}}
+  </view>
+  <swiper autoplay='true' interval='3000' circular='true' duration='2000' class='swi'>
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='actinfo'>{{item.text}}</view>
+  <view class='card'>
+    <view class='time'>{{all_user}}人与你一起坚持打卡</view>
+    <view wx:for='{{we_img}}' class='weimg'>
+      <image src='{{item}}'></image>
+    </view>
+  </view>
+  <view class='pos1'>
+    <view class='{{phbstyle==0?sty1:sty2}}' bindtap='change' data-color='0'>打卡动态</view>
+  </view>
+  <view class='pos2'>
+    <view class='{{phbstyle==1?sty1:sty2}}' bindtap='change' data-color='1'>排行榜</view>
+  </view>
+  <text class='line'></text>
+  <view wx:if="{{dt}}">
+    <view class='hobby' wx:for="{{dtarr}}" catchtap='moreinfo' id='{{item.id}}'>
+      <image src='{{item.image}}'></image>
+      <view style='margin-top:20rpx'>
+        <text style='margin-right:20rpx;'>{{item.name}}</text>
+        <text>{{item.cardtime}}打卡</text>
+        <view>{{item.cardtext}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{phb}}">
+    <view class='head'>
+      <image src='{{userimage}}'></image>
+    </view>
+    <view class='phb_card'>
+      你已经坚持打卡{{card_day}}天啦，排名第{{gread}}
+    </view>
+    <view wx:for='{{phb_arr}}' class='phb_info'>
+      <!-- <image src='../../images/1.png'></image> -->
+      <image src='{{item.id}}'></image>
+      <text class='text1'>{{item.userid}}</text>
+      <text class='text2'>坚持打卡{{item.num}}天</text>
+    </view>
+  </view>
+  <view class='getcard' bindtap='{{IScard==0?"getcard":""}}'>
+    <text>{{lastText}}</text>
+  </view>
+</view>

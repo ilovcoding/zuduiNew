@@ -1,0 +1,28 @@
+<view>
+  <image src='../../images/logo.png'></image>
+</view>
+<view class='mly'>
+  QQ:84631561
+</view>
+<view class='mly'>
+  微信公众号：微言合工大
+</view>
+<!--pages/card/getcard.wxml-->
+<view class='head'>
+  <text>反馈错误</text>
+</view>
+<form bindsubmit="bindFormSubmit">
+  <textarea class='content' placeholder='错误内容/或者建议' name="textarea" />
+  <view class='pic'>
+    <view wx:for="{{imgpath}}">
+      <image src='{{item}}'></image>
+    </view>
+    <view wx:if='{{pluspic}}'>
+      <image src='../../images/plus.png' bindtap='choose' class='pluspic'></image>
+    </view>
+  </view>
+
+  <!-- <button type='primary'form-type="submit" bindtap='cardinfo'>打卡发布</button> -->
+  <button form-type="submit" class="btn">提交反馈</button>
+</form>
+  <button class='kefu' open-type='contact'>联系客服</button>

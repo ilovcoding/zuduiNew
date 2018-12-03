@@ -1,0 +1,32 @@
+<!--pages/my/my.wxml-->
+<view class='my-bander'>
+    <image src='../../images/tx.png'></image>
+</view>
+<view class='out'>
+    <view class='pic-pos'>
+        <image class="pic" src="{{img}}"></image>
+    </view>
+    <view class='name'>
+        <open-data type="userNickName"></open-data>
+    </view>
+</view>
+<view class='wdfb' bindtap='wdfb'>
+    <image src='../../images/wdfb.png'></image>
+    <text style='font-size: 32rpx'>我的发布</text>
+    <view class='right'>></view>
+</view>
+<view class='wdfb' bindtap='wdcy'>
+    <image src='../../images/wdcy.png'></image>
+    <text style='font-size: 32rpx'>我的参与</text>
+    <view class='right'>></view>
+</view>
+<view class='wdfb' bindtap='mycount'>
+    <image src='../../images/mycount.png'></image>
+    <text style='font-size: 32rpx'>我的积分</text>
+    <view class='right'>></view>
+</view>
+<view class='wdfb' bindtap='gywm'>
+    <image src='../../images/gywm.png'></image>
+    <text style='font-size: 32rpx'>关于我们</text>
+    <view class='right'></view>
+</view>

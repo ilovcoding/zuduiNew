@@ -1,0 +1,25 @@
+/* pages/gfactivity/gfactivity.wxss */
+
+.classify {
+  border-top: 8rpx #fff solid;
+  width: 100%;
+  height: 80rpx;
+}
+
+.knowledge {
+  width: 100%;
+  height: 264rpx;
+}
+
+.early {
+  width: 50%;
+  height: 264rpx;
+  margin-left: -4rpx;
+}
+
+.sports {
+  width: 50%;
+  height: 264rpx;
+  margin-right: -4rpx;
+  float: right;
+}

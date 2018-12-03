@@ -1,0 +1,22 @@
+<!--pages/teaminfo/wantjoin.wxml-->
+<view class='wantjoin'>
+<form bindsubmit="formSubmit" >
+    <text class='text1'>我要加入</text>
+    <text class='info'>~填写联系方式方便小伙伴联系你~</text>
+    <text class='info'>~习惯养成项目不用填写信息~</text>
+<view class='text2'>
+   <text class='name'> 姓名：</text>
+    <input placeholder='请输入姓名' name='name'></input>
+</view>
+<view class='text2'>
+   <text class='name'> 手机：</text>
+    <input placeholder='请输入手机号' name='tel' bindblur="checkPhone"></input>
+</view>
+<view class='text2'>
+   <text class='name' > QQ：</text>
+    <input placeholder='请输入QQ号'  name='qq' bindblur="checkQQ"></input>
+</view>
+ <button formType="submit" class='sure' type='primary'>{{submit}}</button>
+ <button class='goback'  bindtap='goback'>取消</button>
+</form>
+</view>

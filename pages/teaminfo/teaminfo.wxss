@@ -1,0 +1,87 @@
+/* pages/teaminfo/teaminfo.wxss */
+
+.head {
+  font-size: 30rpx;
+  font-family: inherit;
+  font-weight: bold;
+  padding-top: 20rpx;
+  margin-left: 40rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #5f6874;
+  font-weight: bolder;
+  margin: 20rpx;
+}
+
+.time view {
+  display: inline-block;
+  margin: 20rpx;
+}
+
+.swi {
+  margin-top: 50rpx;
+  height: 400rpx;
+}
+.swi swiper-item{
+  height: 400rpx;
+}
+.swi image{
+  width: 100%;
+  height: 400rpx;
+}
+.info {
+  margin: 40rpx;
+  font-size: 24rpx;
+  color: #5f6874;
+  font-weight: bolder;
+  word-break: break-all;
+  text-indent: 48rpx;
+}
+
+.join {
+  margin: 40rpx;
+  font-size: 24rpx;
+  color: #c8c8c8;
+  font-weight: bolder;
+}
+
+.hobby {
+  height: 190rpx;
+  border-top: 4rpx silver solid;
+}
+.slide-image{
+  width: 100%;
+  height: 300rpx;
+}
+.hobby image {
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 50%;
+  float: left;
+  margin: 40rpx;
+}
+
+.more {
+  color: #3f51b5;
+  position: relative;
+  float: right;
+  font-size: 28rpx;
+}
+.master_info{
+  margin-left: 200rpx;
+  width: 400rpx;
+  text-align: left;
+  background: #fff;
+}
+.master_info text {
+  display: inline-block;
+  margin-left: 30rpx;
+}
+
+.master_info {
+  font-size: 24rpx;
+  color: #5f6874;
+  font-weight: bolder;
+}

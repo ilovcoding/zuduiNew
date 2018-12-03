@@ -1,0 +1,20 @@
+<!--pages/card/getcard.wxml-->
+<view class='head'>
+    <text>签到打卡</text>
+</view>
+
+<form bindsubmit="bindFormSubmit">
+<textarea class='content' value='{{content}}'name="textarea"/>
+<view class='line'></view>
+<view class='pic'>
+    <view wx:for="{{imgpath}}">
+        <image src='{{item}}'></image>
+    </view>
+    <view wx:if='{{pluspic}}'>
+      <image src='../../images/plus.png' bindtap='choose' class='pluspic'></image>
+    </view>
+</view>
+
+<!-- <button type='primary'form-type="submit" bindtap='cardinfo'>打卡发布</button> -->
+<button form-type="submit" class="btn">发布</button>
+</form>
