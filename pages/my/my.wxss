@@ -6,6 +6,9 @@
     width: 160rpx;
     height: 160rpx;
 }
+.my-bander{
+  height: 360rpx;
+}
 .my-bander image {
     width: 100%;
     height: 360rpx;

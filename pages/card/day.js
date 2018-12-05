@@ -14,7 +14,7 @@ Page({
         todayIndex: 0
     },
     onLoad: function(e) {
-        console.log("rili", e)
+      let that = this
         try {
             key_openid = wx.getStorageSync("key_openid")
         } catch (e) {
@@ -31,12 +31,12 @@ Page({
                     key: 'get_time',
                     data: res.data.out_time,
                 })
+              that.dateInit();
             }
         })
         let now = new Date();
         let year = now.getFullYear();
         let month = now.getMonth() + 1;
-        this.dateInit();
         this.setData({
             year: year,
             month: month,

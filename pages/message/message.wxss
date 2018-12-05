@@ -20,7 +20,6 @@
 .wline {
   border-top: 1rpx #fff solid;
 }
-
 .change {
   color: #fff;
   float: left;
@@ -51,11 +50,11 @@
 }
 .swiper{
   width: 100%;
-  height: 352rpx;
+  height: 354rpx;
 }
 .gfimg{
   width: 100%;
-  height: 352rpx;
+  height: 354rpx;
 }
 
 .addimg image{

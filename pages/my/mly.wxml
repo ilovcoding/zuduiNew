@@ -7,6 +7,9 @@
 <view class='mly'>
   微信公众号：微言合工大
 </view>
+<view class='gfinfo'>
+  这个版本是为了明理苑打卡积分成就活动提前发布的，不可避免地存在一些bug，其中功能大家可以慢慢探索哦（个人发布的习惯养成、比赛组队活动有效期仅为当前版本，下一版更新不保证活动正常运行），使用中有什么问题意见建议都可以通过下方的反馈建议或联系我们提出，如果需要合作可以根据上面的联系方式联系我们～
+</view>
 <!--pages/card/getcard.wxml-->
 <view class='head'>
   <text>反馈错误</text>
@@ -25,4 +28,4 @@
   <!-- <button type='primary'form-type="submit" bindtap='cardinfo'>打卡发布</button> -->
   <button form-type="submit" class="btn">提交反馈</button>
 </form>
-  <button class='kefu' open-type='contact'>联系客服</button>
+<button class='kefu' open-type='contact'>联系我们</button>

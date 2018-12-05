@@ -1,6 +1,6 @@
 <button class='all_list' catchtap='gfactive'>
   <image class='all_image' src='../../images/gfactivity.png'></image>
-  <view class='gfactive'>参与更多精彩活动</view>
+  <view class='gfactive'>打卡一月，成为更好的自己</view>
 </button>
 <view wx:for="{{array}}" class='all_list' catchtap='cardinfo' data-iscard='{{item.iscard}}' id='{{item.id}}' wx:if="{{item.isend==1}}">
   <image class='all_image' src='{{item.userid}}'></image>

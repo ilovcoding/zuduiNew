@@ -21,8 +21,8 @@ Page({
                 url: imgurl + '/code',
                 data: {
                   js_code: res.code,
-                  appid: 'your appid',
-                  secret: 'your secret',
+                  appid: 'wx1ecedeb284de75ae',
+                  secret: '5ca9425bfc77fbc7b7f108c21cf29438',
                   grant_type: 'authorization_code',
                   userinfo: user_info
                 },
@@ -65,7 +65,7 @@ Page({
                     wx.showModal({
                       title: '错误',
                       content: `${res.data.errcode}/${res.data.errmsg}`,
-                      success:()=>{
+                      success: () => {
                         wx.navigateTo({
                           url: '../index/index',
                         })
@@ -85,31 +85,33 @@ Page({
     this.setData({
       _num: 1
     })
+    this.activity({
+      x: 1,
+      y: 2
+    })
+  },
+  activity: function({
+    x,
+    y,
+    isend
+  }) {
     let that = this
     wx.request({
       url: app.globalData.httpUrl + '/activity',
       data: {
-        x: 1,
-        y: 2
+        x: x,
+        y: y
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success: function(res) {
+        console.log("res", res)
+        let arrData = []
         for (let i = 0; i < res.data.length; i++) {
           res.data[i].userid = imgurl + '/img_' + res.data[i].open_id + '_' + res.data[i].id + '_0.png'
+          arrData[i] = res.data[i]
         }
-        let arrData = []
-        res.data.forEach((values, index, input) => {
-          if (input[index].isend == 1) {
-            arrData.push(input[index])
-          }
-        })
-        res.data.forEach((values, index, input) => {
-          if (input[index].isend == 0) {
-            arrData.push(input[index])
-          }
-        })
         that.setData({
           array: arrData
         })
@@ -124,106 +126,25 @@ Page({
       array: []
     })
     if (e.target.dataset.num == 1) {
-
-      let that = this
-      wx.request({
-        url: app.globalData.httpUrl + '/activity',
-        data: {
-          x: 1,
-          y: 2
-        },
-
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success: function(res) {
-          console.log('res', res)
-          for (let i = 0; i < res.data.length; i++) {
-            res.data[i].userid = imgurl + '/img_' + res.data[i].open_id + '_' + res.data[i].id + '_0.png'
-          }
-          // console.log(res.data)
-          let arrData = []
-          res.data.forEach((values, index, input) => {
-            if (input[index].isend == 1) {
-              arrData.push(input[index])
-            }
-          })
-          res.data.forEach((values, index, input) => {
-            if (input[index].isend == 0) {
-              arrData.push(input[index])
-            }
-          })
-          that.setData({
-            array: arrData
-          })
-        }
+      // 1  2
+      this.activity({
+        x: 1,
+        y: 2
       })
     }
     if (e.target.dataset.num == 2) {
-      let that = this
-      wx.request({
-        url: app.globalData.httpUrl + '/activity',
-        data: {
-          x: 1,
-          y: 3
-        },
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success: function(res) {
-          for (let i = 0; i < res.data.length; i++) {
-            res.data[i].userid = imgurl + '/img_' + res.data[i].open_id + '_' + res.data[i].id + '_0.png'
-          }
-          let arrData = []
-          res.data.forEach((values, index, input) => {
-            if (input[index].isend == 1) {
-              arrData.push(input[index])
-            }
-          })
-          res.data.forEach((values, index, input) => {
-            if (input[index].isend == 0) {
-              arrData.push(input[index])
-            }
-          })
-          that.setData({
-            array: arrData
-          })
-        }
+      // 1   3
+      this.activity({
+        x: 1,
+        y: 3
       })
     }
 
     if (e.target.dataset.num == 3) {
-      let that = this
-      wx.request({
-        url: app.globalData.httpUrl + '/activity',
-        data: {
-          x: 2,
-          y: 3
-        },
-
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success: function(res) {
-          for (let i = 0; i < res.data.length; i++) {
-            res.data[i].userid = imgurl + '/img_' + res.data[i].open_id + '_' + res.data[i].id + '_0.png'
-          }
-
-          let arrData = []
-          res.data.forEach((values, index, input) => {
-            if (input[index].isend == 1) {
-              arrData.push(input[index])
-            }
-          })
-          res.data.forEach((values, index, input) => {
-            if (input[index].isend == 0) {
-              arrData.push(input[index])
-            }
-          })
-          that.setData({
-            array: arrData
-          })
-        }
+      // 2 3
+      this.activity({
+        x: 2,
+        y: 3
       })
     }
   },

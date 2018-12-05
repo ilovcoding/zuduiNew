@@ -1,3 +1,10 @@
+<view class='list' wx:for="{{myself}}">
+  <image src='{{item.avatarUrl}}'></image>
+  <text>{{item.name}}{{item.count}}积分</text>
+</view>
+<view class='head'>
+  <text> 积分排行榜</text>
+</view>
 <view wx:for="{{array}}" class='list'>
   <image src='{{item.avatarUrl}}'></image>
   <text>{{item.name}}{{item.count}}积分</text>

@@ -43,8 +43,8 @@ Page({
                         url: imgurl + '/code',
                         data: {
                           js_code: res.code,
-                          appid: 'your appid',
-                          secret: 'your secret',
+                          appid: 'wx1ecedeb284de75ae',
+                          secret: '5ca9425bfc77fbc7b7f108c21cf29438',
                           grant_type: 'authorization_code',
                           userinfo: user_info
                         },
