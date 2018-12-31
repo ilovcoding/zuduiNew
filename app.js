@@ -4,7 +4,7 @@ App({
   },
   globalData: {
     userInfo: '',
-    httpUrl:'https://www.wangminwei.top'
+    httpUrl:'https://我的域名'
     //httpUrl:'http://localhost:8001'
   }
 })
