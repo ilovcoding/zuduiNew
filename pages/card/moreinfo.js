@@ -30,7 +30,7 @@ Page({
         console.log(day)
         imgarr = []
         for (let i = 0; i < 3; i++) {
-          imgarr.push(imgurl + '/img_' + info.actid + '_' + info.openid + '_' + day+ '_' + i + '.png')
+          imgarr.push(imgurl + '/img_' + info.actid + '_' + info.openid + '_' + day + '_' + i + '.png')
         }
         console.log(imgarr)
         that.setData({
@@ -43,6 +43,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: '微信关注微言合工大',
+      path: '/pages/index/index'
+    }
   }
 })

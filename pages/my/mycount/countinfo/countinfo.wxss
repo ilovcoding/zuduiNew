@@ -1,0 +1,19 @@
+/* pages/my/mycount/countinfo/countinfo.wxss */
+
+.idcard{
+  font-size: 24rpx;
+}
+.idcard text{
+  margin: 10rpx;
+}
+.reason{
+  font-size: 24rpx;
+  white-space: nowrap;
+}
+.reason text{
+  font-weight: bolder;
+}
+
+view{
+  margin-left: 20rpx;
+}

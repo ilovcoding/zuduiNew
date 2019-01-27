@@ -4,24 +4,40 @@
   <view data-num='2' bindtap='change_band' class="top_band_text  {{_num==2?'change':''}}">习惯养成</view>
   <view data-num='3' bindtap='change_band' class="top_band_text {{_num==3?'change':''}}">比赛组队</view>
 </view>
-<swiper class='swiper' indicator-dots='true' autoplay='true' interval='3000' duration='2000'>
-  <block wx:for="{{gfimg}}">
-    <swiper-item>
-      <image src="{{item}}" class='gfimg' catchtap="{{index==1?'introduce':'gfactivity'}}"></image>
-    </swiper-item>
-  </block>
-</swiper>
-<scroll-view scroll-y style='height:600rpx'>
-  <view wx:for="{{array}}" class='all_list' id='{{item.id}}' data-acttype='{{item.type}}' bindtap='teaminfo'>
-    <image class='all_image' src='{{item.userid}}'></image>
-    <view class='itemHead'>{{item.head}}</view>
-    <view class='actText'>{{item.text}}</view>
-    <view class='actText'>{{item.count}}人加入</view>
-    <view wx:if="{{item.isend==0}}">
-      <image class='cov' src='../../images/yz.png'></image>
+<!-- 官方活动入口 -->
+<!-- <image src="{{gfactiveImg}}" class='gfimg' catchtap="{{index==1?'introduce':'gfactivity'}}"></image> -->
+<view wx:for="{{actArray}}" id='{{item.id}}' data-acttype='{{item.type}}' bindtap='teaminfo' class='actArray'>
+  <view class='top'>
+    <image src='{{item.user.image}}'></image>
+    <view class='text-col'>
+      <text class='head'>{{item.head}}</text>
+      <text class='time'>{{item.time}}</text>
     </view>
   </view>
-</scroll-view>
-<view class='addimg' bindtap='create_act'>
-  <image src='../../images/add.png'></image>
+  <view class='mainText'>{{item.text}}</view>
+  <!-- 数据库没设计好先用name字段代替地址 -->
+  <view class='{{"img"+item.name.length}}'>
+    <image wx:for='{{item.name}}' src='{{item}}'></image>
+  </view>
+  <view class='bottom'>
+    <!--参与人数  -->
+    <view>
+      <image src='../../images/joincount.png'>
+      </image>
+      <text>{{item.count}}</text>
+    </view>
+    <!-- 打卡人数 -->
+    <view>
+      <image src='../../images/comment.png'>
+      </image>
+      <text>1024</text>
+    </view>
+    <!-- 转发到朋友圈 -->
+    <view>
+      <image src='../../images/friend.png'></image>
+    </view>
+  </view>
 </view>
+<!-- <view class='addimg' bindtap='create_act'>
+  <image src='../../images/add.png'></image>
+</view> -->

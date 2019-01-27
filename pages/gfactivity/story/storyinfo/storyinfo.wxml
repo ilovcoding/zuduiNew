@@ -1,8 +1,8 @@
 <!--pages/card/getcard.wxml-->
 <view class='head'>
-  <text>{{storyType}}</text>
-  <text>{{title}}</text>
+  <text selectable='true'>{{storyType}}</text>
+  <text selectable='true'>{{title}}</text>
 </view>
-<text class='gfinfo'>{{study}}</text>
+<text class='gfinfo' selectable='true'>{{study}}</text>
 <view class='line'></view>
 <image src='{{imgUrl}}'></image>

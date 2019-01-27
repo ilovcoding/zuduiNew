@@ -19,9 +19,11 @@
     共有{{num}}人加入学习你要加入吗？
   </view>
   <view class='card'>
-    <view wx:for='{{we_img}}' class='weimg'>
-      <image src='{{item.gfactive.avatarUrl}}'></image>
-    </view>
+    <scroll-view scroll-x="true" class='weImgScroll'>
+      <view wx:for='{{we_img}}' class='weimg'>
+        <image src='{{item.gfactive.avatarUrl}}'></image>
+      </view>
+    </scroll-view>
   </view>
   <button type='primary' size='mini' style='margin-left:200rpx;margin-top:40rpx;width:292rpx;height:60rpx' catchtap='wantstudy'>我爱学习</button>
 

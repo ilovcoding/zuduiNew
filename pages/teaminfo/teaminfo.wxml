@@ -18,8 +18,6 @@
   <view wx:if="{{item.isend==1}}" class='join'>
     共有{{item.count}}人加入你要加入吗？
   </view>
-
-
   <view wx:if="{{acttype==2&&isjoin&&item.isend==1}}" class='master_info'>
     <view>
       <text style='width:150rpx;'>联系人：</text>

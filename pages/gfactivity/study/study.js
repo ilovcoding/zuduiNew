@@ -91,7 +91,10 @@ Page({
     }
   },
   onShareAppMessage: function() {
-
+    return {
+      title: '微信关注微言合工大',
+      path: '/pages/index/index'
+    }
   },
   wantstudy:function(){
     wx.navigateTo({

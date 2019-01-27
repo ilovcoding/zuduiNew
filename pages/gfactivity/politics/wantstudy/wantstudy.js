@@ -56,9 +56,23 @@ Page({
     })
   },
   checklength: function(input) {
+    let oldText = wx.getStorageSync('politics')
+    let oldTextArr = oldText.split("")
+    let oldChar = oldTextArr.length
     let text = input.detail.value
     let textArr = text.split("")
     let char = textArr.length
+    //  console.log(oldChar,char)
+     let subtract = char - oldChar
+    //  console.log(subtract)
+    // if(subtract>10){
+    //   wx.showModal({
+    //     title: '提示',
+    //     content: '请不要一次粘贴或者输入超过10个字',
+    //     showCancel:false
+    //   })
+    //   return oldText
+    // }
     this.setData({
       char: char
     })
@@ -168,6 +182,9 @@ Page({
     }
   },
   onShareAppMessage: function() {
-
+    return {
+      title: '微信关注微言合工大',
+      path: '/pages/index/index'
+    }
   }
 })

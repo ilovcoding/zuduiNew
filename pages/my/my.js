@@ -1,11 +1,10 @@
 // pages/my/my.js
+let httpUrl=getApp().globalData.httpUrl
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    img: '../../images/auto.png'
+    userImg: '../../images/auto.png',
+    studentid: '0000000000',
+    showModal: false
   },
 
   /**
@@ -15,14 +14,12 @@ Page({
     var that = this;
     wx.getUserInfo({
       success: function(res) {
-        console.log("my", res.userInfo.avatarUrl)
         that.setData({
-          img: res.userInfo.avatarUrl
+          userImg: res.userInfo.avatarUrl
         })
       }
     })
   },
-
   wdfb: function() {
     console.log("wdfb")
     wx.navigateTo({
@@ -45,7 +42,29 @@ Page({
       url: 'mly',
     })
   },
+  bindid: function() {
+    let that = this
+    this.setData({
+      showModal: !that.data.showModal
+    })
+  },
+  judgeid:function(info) {
+    let [stdid,pwd]=[info.value.stdid,info.value.pwd]
+    wx.request({
+      url: httpUrl+'/judgeid',
+      data:{
+        stdid,
+        pwd
+      },
+      success:(res)=>{
+        console.log(res.data)
+      }
+    })
+  },
   onShareAppMessage: function() {
-
+    return {
+      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+      path: '/pages/index/index'
+    }
   }
 })

@@ -7,8 +7,10 @@ Page({
     array: [],
     gfimg: [
       'https://www.wangminwei.top/gfactive.jpg',
-      '../../images/introduce.png'
-    ]
+      '../../images/introduce.jpg'
+    ],
+    gfactiveImg: 'https://www.wangminwei.top/gfactive.jpg',
+    imgurl
   },
   onLoad: function() {
     wx.getUserInfo({
@@ -27,7 +29,7 @@ Page({
                   userinfo: user_info
                 },
                 success: function(res) {
-                  console.log(res)
+                  // console.log(res)
                   let openid = res.data.openid
                   if (openid) {
                     wx.setStorage({
@@ -41,8 +43,8 @@ Page({
                         info: user_info
                       },
                       success: function(res) {
-                        console.log('adduserres', res)
-                        console.log("index", res.data)
+                        // console.log('adduserres', res)
+                        // console.log("index", res.data)
                         wx.setStorage({
                           key: "key_openid",
                           data: res.data.openid
@@ -64,12 +66,7 @@ Page({
                     })
                     wx.showModal({
                       title: '错误',
-                      content: `${res.data.errcode}/${res.data.errmsg}`,
-                      success: () => {
-                        wx.navigateTo({
-                          url: '../index/index',
-                        })
-                      }
+                      content: `${res.data.errcode}/${res.data.errmsg}`
                     })
                     return false
                   }
@@ -80,8 +77,6 @@ Page({
         })
       }
     })
-  },
-  onShow: function() {
     this.setData({
       _num: 1
     })
@@ -106,14 +101,9 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function(res) {
-        console.log("res", res)
-        let arrData = []
-        for (let i = 0; i < res.data.length; i++) {
-          res.data[i].userid = imgurl + '/img_' + res.data[i].open_id + '_' + res.data[i].id + '_0.png'
-          arrData[i] = res.data[i]
-        }
+        console.log(res.data)
         that.setData({
-          array: arrData
+          actArray:res.data
         })
       }
     })
@@ -172,12 +162,10 @@ Page({
     })
   },
   onShareAppMessage: function() {
-
-  },
-  introduce: () => {
-    // wx.navigateTo({
-    //   url: '../my/mly',
-    // })
+    return {
+      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+      path: '/pages/index/index'
+    }
   },
   gfactivity: () => {
     wx.navigateTo({

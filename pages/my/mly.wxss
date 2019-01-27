@@ -1,12 +1,9 @@
 /* pages/my/mly.wxss */
 
-image {
-  margin-top: 50rpx;
-  width: 700rpx;
-  height: 200rpx;
-  margin-left: 20rpx;
+.mlyimg{
+  width: 100%;
+  height: 350rpx;
 }
-
 .mly {
   margin: 20rpx;
   font-size: 36rpx;

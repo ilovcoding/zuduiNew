@@ -91,7 +91,10 @@ Page({
     }
   },
   onShareAppMessage: function() {
-
+    return {
+      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+      path: '/pages/index/index'
+    }
   },
   wantstudy: function() {
     wx.navigateTo({
@@ -99,9 +102,14 @@ Page({
     })
   },
   studyInfo: function(e) {
-    let info = e.currentTarget.dataset.info
-    wx.navigateTo({
-      url: `./studyinfo/studyinfo?openid=${info.openid}&study=${info.study}&imgUrl=${info.imgUrl}`,
+    // let info = e.currentTarget.dataset.info
+    // wx.navigateTo({
+    //   url: `./studyinfo/studyinfo?openid=${info.openid}&study=${info.study}&imgUrl=${info.imgUrl}`,
+    // })
+    wx.showModal({
+      title: '提示',
+      content: '社会时政文章详情暂不对外展示',
+      showCancel:false
     })
   }
 })

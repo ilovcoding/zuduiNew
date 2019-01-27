@@ -19,9 +19,11 @@
     共有{{num}}人分享你要加入吗？
   </view>
   <view class='card'>
+   <scroll-view scroll-x="true" class='weImgScroll'>
     <view wx:for='{{we_img}}' class='weimg'>
       <image src='{{item.gfactive.avatarUrl}}'></image>
     </view>
+    </scroll-view>
   </view>
   <button type='primary' size='mini' style='margin-left:225rpx;margin-top:40rpx;width:300rpx;height:60rpx' catchtap='wantstudy'>我要分享</button>
 
@@ -42,7 +44,7 @@
       <view style='margin-top:20rpx'>
         <text style='margin-right:20rpx;'>{{item.name}}</text>
         <text>{{item.time}}分享</text>
-        <view> 点击查看详情</view>
+        <view> 已打卡~</view>
       </view>
     </view>
   </view>

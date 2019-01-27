@@ -22,7 +22,7 @@ Page({
     var that = this
     wx.chooseImage({
       count: 9,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       success: function(res) {
         console.log("res", res)
         for (let i = 0; i < res.tempFilePaths.length; i++) {
@@ -94,7 +94,30 @@ Page({
       canDo3 = true
     }
   },
-
+  uploadimg: function(imgarr, index,act_id) {
+    let that = this
+    let i = index
+    wx.uploadFile({
+      url: httpUrl + '/image',
+      filePath: imgarr[i],
+      name: 'wechat_image',
+      formData: {
+        "open_id": key_open,
+        "index": i,
+        "act_id": act_id
+      },
+      success:function(){
+        i++;
+        if(i==imgarr.length){
+          wx.showToast({
+            title: '图片上传成功'
+          })
+        }else{
+          that.uploadimg(imgarr,i,act_id)
+        }
+      }
+    })
+  },
   formSubmit(event) {
     let that = this
     let value = event.detail.value
@@ -111,8 +134,7 @@ Page({
       //
       console.log(e)
     }
-    // console.log("openid", key_open)
-    // console.log("userid", key_user)
+
     if (value.category > 0 && key_open && key_user && canDo && canDo1 && canDo2 && canDo3 && value.name) {
       let that = this
       console.log("openid", key_open)
@@ -135,25 +157,7 @@ Page({
         success: function(res) {
           let act_id = res.data.actid
           if (imageList[0]) {
-            for (let i = 0; i < imageList.length; i++) {
-              wx.uploadFile({
-                url: httpUrl + '/image',
-                filePath: imageList[i],
-                name: 'wechat_image',
-                formData: {
-                  'user': 'test',
-                  "open_id": key_open,
-                  "index": i,
-                  "act_id": act_id
-                },
-                success: function(res) {
-
-                },
-                fail: function() {
-                  console.log("失败")
-                }
-              })
-            }
+            that.uploadimg(imageList,0,act_id)
           }
           wx.showModal({
             title: '提示',
@@ -168,20 +172,26 @@ Page({
       })
     }
   },
-  delImg:function(e){
+  delImg: function(e) {
     let that = this
     wx.showModal({
       title: '提示',
       content: '是否删除此图片',
-      success:(res)=>{
-        if(res.confirm){
+      success: (res) => {
+        if (res.confirm) {
           let index = e.target.dataset.imgindex
-          imageList.splice(index,1)
+          imageList.splice(index, 1)
           that.setData({
-            imageList:imageList
+            imageList: imageList
           })
         }
       }
     })
+  },
+  onShareAppMessage: function() {
+    return {
+      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+      path: '/pages/index/index'
+    }
   }
 })

@@ -15,14 +15,14 @@
   <view class='gfinfo'>
     生活中处处有惊喜，苑 儿相信同学们一定有一 双发现美的眼睛，快来 分享每日的所见所闻吧 游戏规则： 1.编辑撰写文 章，400-1000字 2.文章分为三类：时事 热点、我与明理苑、工 大奇闻轶事，请在打卡 时选择相应类别 3.记得写个标题 4.不允许抄袭哦 积分规则：每片投稿文 章可获得积分10分
   </view>
-  <view class='gfjoin'>
+  <!-- <view class='gfjoin'>
     共有{{num}}人分享故事你要加入吗？
   </view>
   <view class='card'>
     <view wx:for='{{we_img}}' class='weimg'>
       <image src='{{item.gfactive.avatarUrl}}'></image>
     </view>
-  </view>
+  </view> -->
   <button type='primary' size='mini' style='margin-left:225rpx;margin-top:40rpx;width:300rpx;height:60rpx' catchtap='wantstory'>我要投稿</button>
 
 

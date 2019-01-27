@@ -6,7 +6,7 @@
 <form bindsubmit="bindFormSubmit">
   <view class="res-title">
     <text class='res-tag'>标题</text>
-    <input placeholder="在此处输入标题" name="title" ></input>
+    <input placeholder="在此处输入标题" name="title" maxlength='15'></input>
   </view>
   <view class='line'></view>
   <textarea class='content' placeholder='快来分享你的所见所闻吧（400-1000字）' name="textarea" value='{{story}}' bindinput='checklength' maxlength='1000' />

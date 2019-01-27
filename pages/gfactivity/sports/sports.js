@@ -1,8 +1,11 @@
 // pages/gfactivity/early/early.js
 let app = getApp()
 let URL = app.globalData.httpUrl
-let date = new Date
-let time = date.getTime()
+let date = new Date()
+let day = date.getDate()
+let month = date.getMonth()+1
+let year = date.getFullYear()
+let time = ''+year+month+day
 Page({
   data: {
     sport: 1024
@@ -100,7 +103,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+      path: '/pages/index/index'
+    }
   },
   bindFormSubmit: function(res) {
     let submit = res.detail.value

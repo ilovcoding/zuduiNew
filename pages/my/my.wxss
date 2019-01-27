@@ -1,67 +1,84 @@
 /* pages/my/my.wxss */
-.out{
-    position: absolute;
-    top: 80rpx;
-    left:50%;
-    width: 160rpx;
-    height: 160rpx;
-}
-.my-bander{
-  height: 360rpx;
-}
-.my-bander image {
-    width: 100%;
-    height: 360rpx;
+
+.user {
+  display: flex;
+  flex-direction: row;
+  margin: 40rpx;
+  height: 140rpx;
 }
 
-.pic-pos image {
-    position: relative;
-    width: 160rpx;
-    height: 160rpx;
-    margin-left: -80rpx; 
+.user image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
 }
-
-.pic {
-    border-radius: 50%;
+.userName{
+  display:flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: 30rpx;
+  font-weight: bolder;
+  line-height: 70rpx;
+  margin-left: 40rpx;
 }
-
-.name {
-    position:relative;
-    margin-top: 20rpx;
-    font-weight: bold;
-    text-align: center;
-    width: 160rpx;
-    margin-left: -80rpx;
+.studentid{
+  width: 100%;
+  color: silver;
+  font-size: 24rpx;
+  font-weight: normal;
+  line-height: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
+.studentid image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
 .wdfb {
-    margin-bottom: 10rpx;
-    position: relative;
-    width: 100%;
-    height: 88rpx;
-    border-top: 2rpx solid silver;
+  position: relative;
+  width: 100%;
+  height: 88rpx;
+  border-top: 2rpx solid silver;
 }
 
 .wdfb image {
-    margin-top: 10rpx;
-    width: 78rpx;
-    height: 78rpx;
-    margin-left: 20rpx;
+  margin: 14rpx;
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 20rpx;
 }
 
 .wdfb text {
-    display: inline-block;
-    font-weight: bold;
-    position: absolute;
-    margin-top: 20rpx;
-    margin-left: 20rpx;
-    color: #c2c2c2;
+  display: inline-block;
+  font-weight: bold;
+  position: absolute;
+  line-height: 88rpx;
+  margin-left: 20rpx;
+  color: #000;
 }
 
 .right {
-    font-size: 36rpx;
-    margin-top: 20rpx;
-    float: right;
-    color: silver;
-    margin-right: 30rpx;
+  font-size: 36rpx;
+  margin-top: 20rpx;
+  float: right;
+  color: silver;
+  margin-right: 30rpx;
+}
+/* 自定义modal样式 */
+/* .modal{
+  position:absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.719);
+} */
+.modalInput{
+  margin: 40rpx;
+  background:rgba(24, 22, 11, 0.2);
+}
+.modalInput input{
+  height: 80rpx;
 }

@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/message/message",
     "pages/index/index",
     "pages/gfactivity/gfactivity",
     "pages/my/my",
-    "pages/message/message",
     "pages/card/card",
     "pages/create/create",
     "pages/teaminfo/teaminfo",
@@ -32,13 +32,14 @@
     "pages/gfactivity/associate/want/want",
     "pages/gfactivity/politics/wantstudy/wantstudy",
     "pages/gfactivity/politics/studyinfo/studyinfo",
-    "pages/my/mycount/mycount"
+    "pages/my/mycount/mycount",
+    "pages/my/mycount/countinfo/countinfo"
   ],
   "window": {
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fb9b00",
-    "navigationBarTitleText": "组队打卡小程序"
+    "navigationBarTitleText": "明理组队打卡"
   },
   "tabBar": {
     "color": "#000",

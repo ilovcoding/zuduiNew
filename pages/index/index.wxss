@@ -1,4 +1,10 @@
 /**index.wxss**/
+.mlybg{
+  width: 100%;
+  height: 100vh;
+  z-index: -100;
+  position: absolute;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,4 +24,8 @@
 
 .userinfo view{
    margin: 80rpx;
+}
+
+.userinfo button{
+  margin-top: 80vh;
 }

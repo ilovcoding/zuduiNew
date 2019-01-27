@@ -9,7 +9,6 @@
         </view>
         <view>
             <text class='res-info'>请输入具体信息</text>
-           
             <textarea maxlength="150" name="content" bindblur='checkContent' style='height:200rpx;' placeholder='我们需要……'>
                 </textarea>
 
@@ -40,7 +39,7 @@
         <view>
             <view class="res-title">
                 <text class='res-tag'>姓名:</text>
-                <input placeholder="请输入姓名" name="name"></input>
+                <input placeholder="请输入姓名" name="name" maxlength='6'></input>
             </view>         
         </view>
         <view>

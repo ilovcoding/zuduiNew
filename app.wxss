@@ -1,3 +1,7 @@
+.weImgScroll{
+  height: 80rpx;
+  white-space: nowrap;
+}
 .container {
   height: 100%;
   display: flex;

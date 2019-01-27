@@ -1,5 +1,8 @@
 /* pages/teaminfo/teaminfo.wxss */
-
+.weImgScroll{
+  height: 80rpx;
+  white-space: nowrap;
+}
 .head {
   font-size: 36rpx;
   font-family: inherit;
@@ -12,11 +15,6 @@
 .slide-image {
   width: 100%;
 }
-
-
-
-
-
 .hobby {
   height: 190rpx;
   border-top: 4rpx silver solid;
@@ -186,4 +184,5 @@
 
 .weimg {
   display: inline;
+  margin-right: 10rpx;
 }

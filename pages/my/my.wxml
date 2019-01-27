@@ -1,32 +1,64 @@
-<!--pages/my/my.wxml-->
-<view class='my-bander'>
-    <image src='../../images/tx.png'></image>
+<view class='user'>
+  <!-- 用户头像 -->
+  <image src="{{userImg}}"></image>
+  <view class='userName'>
+    <!-- 姓名和学号没授权之前先显示微信名称 -->
+    <open-data type="userNickName"></open-data>
+    <view class='studentid'>
+      <text>{{studentName}}：{{studentid}}</text>
+      <view catchtap='bindid'>
+        <text>绑定学号</text>
+        <image src='../../images/down.png'></image>
+      </view>
+    </view>
+  </view>
 </view>
-<view class='out'>
-    <view class='pic-pos'>
-        <image class="pic" src="{{img}}"></image>
-    </view>
-    <view class='name'>
-        <open-data type="userNickName"></open-data>
-    </view>
+<!-- 由bindid 控制的事件 -->
+<view wx:if='{{showModal}}'>
+  <view class='modalInput'>
+    <form bindsubmit='judgeid'>
+      <input placeholder='输入学号' type='number' maxlength='10' name='stdid'></input>
+      <input placeholder='输入密码身份证后六位' type='number' maxlength='6' name='pwd' ></input>
+      <button form-type='submit'>点击绑定学号</button>
+    </form>
+  </view>
+</view>
+<!-- 创建活动 样式一样 class都用wdfb -->
+<view class='wdfb' bindtap='wdfb'>
+  <image src='../../images/create.png'></image>
+  <text style='font-size: 32rpx'>创建活动</text>
+  <image src='../../images/myright.png' class='right'></image>
 </view>
 <view class='wdfb' bindtap='wdfb'>
-    <image src='../../images/wdfb.png'></image>
-    <text style='font-size: 32rpx'>我的发布</text>
-    <view class='right'>></view>
+  <image src='../../images/wdfb.png'></image>
+  <text style='font-size: 32rpx'>我的发布</text>
+  <!-- <view class='right'>></view> -->
+  <image src='../../images/myright.png' class='right'></image>
 </view>
 <view class='wdfb' bindtap='wdcy'>
-    <image src='../../images/wdcy.png'></image>
-    <text style='font-size: 32rpx'>我的参与</text>
-    <view class='right'>></view>
+  <image src='../../images/wdcy.png'></image>
+  <text style='font-size: 32rpx'>我的参与</text>
+  <!-- <view class='right'>></view> -->
+  <image src='../../images/myright.png' class='right'></image>
 </view>
 <view class='wdfb' bindtap='mycount'>
-    <image src='../../images/mycount.png'></image>
-    <text style='font-size: 32rpx'>我的积分</text>
-    <view class='right'>></view>
+  <image src='../../images/mycount.png'></image>
+  <text style='font-size: 32rpx'>我的积分</text>
+  <!-- <view class='right'>></view> -->
+  <image src='../../images/myright.png' class='right'></image>
 </view>
 <view class='wdfb' bindtap='gywm'>
-    <image src='../../images/gywm.png'></image>
-    <text style='font-size: 32rpx'>关于我们</text>
-    <view class='right'></view>
+  <image src='../../images/gywm.png'></image>
+  <text style='font-size: 32rpx'>关于我们</text>
+  <!-- <view class='right'>></view> -->
+  <image src='../../images/myright.png' class='right'></image>
 </view>
+<!-- 微信小程序没有modal组件自己写一个试试
+<cover-view class='modal' wx:if='{{showModal}}' bindtap='bindid'>
+  <cover-view class='modalInput' catchtap='null'>
+      <cover-view>学号：</cover-view>
+      <input placeholder='输入学号' focus='true' name='studentid' type='number' bindblur='judgeid'></input>
+      <cover-view>密码：</cover-view>
+      <input placeholder='身份证后六位' focus='true' type='number'></input>
+  </cover-view>
+</cover-view> -->

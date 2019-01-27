@@ -7,25 +7,25 @@ Page({
     button: ""
   },
   onLoad: function() {
-    let errmsg= wx.getStorageSync('errmsg')
-    if(errmsg){
+    let errmsg = wx.getStorageSync('errmsg')
+    if (errmsg) {
       return false
     }
-      wx.getSetting({
-        success: function(res) {
-          if (res.authSetting['scope.userInfo']) {
-            wx.getUserInfo({
-              success: function(res) {
-                console.log(res)
-                wx.switchTab({
-                  url: '../message/message'
-                })
-              }
-            })
-          }
+    wx.getSetting({
+      success: function(res) {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: function(res) {
+              // console.log(res)
+              wx.switchTab({
+                url: '../message/message'
+              })
+            }
+          })
         }
-      })
-    
+      }
+    })
+
   },
   bindGetUserInfo: function(e) {
     if (e.detail.userInfo) {
@@ -52,19 +52,19 @@ Page({
                           if (res.data.errmsg) {
                             wx.setStorage({
                               key: 'errmsg',
-                              data:true,
+                              data: true,
                             })
                             wx.showModal({
                               title: '错误',
                               content: `${res.data.errcode}/${res.data.errmsg}`,
-                              success:()=>{
+                              success: () => {
                                 wx.navigateTo({
                                   url: '../index/index',
                                 })
                               }
                             })
                             return false
-                          }else{
+                          } else {
                             wx.setStorage({
                               key: 'errmsg',
                               data: false,
@@ -105,6 +105,12 @@ Page({
       wx.switchTab({
         url: '../message/message'
       })
+    }
+  },
+  onShareAppMessage: function() {
+    return {
+      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+      path: '/pages/index/index'
     }
   }
 })

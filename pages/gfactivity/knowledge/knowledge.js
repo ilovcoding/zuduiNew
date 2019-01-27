@@ -119,6 +119,9 @@ Page({
     })
   },
   onShareAppMessage: function() {
-
+    return {
+      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+      path: '/pages/index/index'
+    }
   }
 })

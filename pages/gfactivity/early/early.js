@@ -2,7 +2,8 @@
 let app = getApp()
 let URL = app.globalData.httpUrl
 let flag = false
-let date = new Date
+let date = new Date()
+// console.log(date)
 let hour = parseInt(date.getHours())
 let minute = parseInt(date.getMinutes())
 let year = date.getFullYear()
@@ -10,11 +11,10 @@ let month = date.getMonth() + 1
 let day = date.getDate()
 let time = '' + year + month + day
 if (hour == 6 && minute <= 30) {
-  console.log(hour, minute)
   flag = true
-} else {
-  console.log(hour, minute)
-}
+} else {}
+console.log(hour, minute, flag)
+
 Page({
 
 
@@ -75,9 +75,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+      path: '/pages/index/index'
+    }
   },
   bindFormSubmit: function(res) {
+    console.log(hour, minute, flag)
     if (!flag) {
       wx.showModal({
         title: '提示',
@@ -87,7 +91,7 @@ Page({
       return false
     }
     let submit = res.detail.value
-    console.log(submit)
+    // console.log(submit)
     if (submit.textarea) {
       let openid = wx.getStorageSync('key_openid')
       wx.request({
@@ -98,7 +102,7 @@ Page({
           openid: openid
         },
         success: function(res) {
-          console.log(res.data)
+          // console.log(res.data)
           if (res.data.ans) {
             wx.showModal({
               title: '提示',
