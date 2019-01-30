@@ -1,0 +1,14 @@
+<form bindsubmit='judgeid' wx:if="{{studentid}}">
+  <input placeholder='输入学号' type='number' maxlength='10' name='stdid'></input>
+  <input placeholder='默认身份证后六位' name='pwd'></input>
+  <text style="font-size:18rpx">提示密码是新教务系统的密码,没改过新教务系统和信息门户密码的人,默认是身份证后六位</text>
+  <view>
+    <button form-type='submit' type='primary' size='mini'>绑定学号</button>
+  </view>
+</form>
+<form wx:if="{{phone}}" bindsubmit='judgephone'>
+  <input placeholder='输入手机号' type='number' maxlength='13' name='phone'></input>
+  <view>
+  <button form-type='submit' type='primary' size='mini'>保存手机号</button>
+  </view>
+</form>

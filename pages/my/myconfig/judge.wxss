@@ -1,0 +1,11 @@
+input{
+  margin: 40rpx;
+  border-bottom: 2rpx solid green;
+}
+button{
+  width: 300rpx;
+}
+view{
+  width: 300rpx;
+  margin: 0 auto;
+}

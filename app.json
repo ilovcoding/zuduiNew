@@ -33,7 +33,9 @@
     "pages/gfactivity/politics/wantstudy/wantstudy",
     "pages/gfactivity/politics/studyinfo/studyinfo",
     "pages/my/mycount/mycount",
-    "pages/my/mycount/countinfo/countinfo"
+    "pages/my/mycount/countinfo/countinfo",
+    "pages/my/myconfig/myconfig",
+    "pages/my/myconfig/judge"
   ],
   "window": {
     "backgroundColor": "#eeeeee",

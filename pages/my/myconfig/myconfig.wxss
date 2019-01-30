@@ -1,0 +1,23 @@
+/* pages/my/myconfig/myconfig.wxss */
+
+.myconfig {
+  margin-left: 40rpx;
+}
+.myconfig view{
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  font-weight: bolder;
+  border-bottom: 2rpx solid gainsboro;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.studentid image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 20rpx;
+  display: inline-block;
+  margin-right: -40rpx;
+}
