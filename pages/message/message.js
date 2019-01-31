@@ -13,6 +13,7 @@ Page({
     imgurl
   },
   onLoad: function() {
+    /*获取用户信息的函数转移
     wx.getUserInfo({
       success: function(res) {
         let user_info = res.userInfo
@@ -77,6 +78,7 @@ Page({
         })
       }
     })
+    */
     this.setData({
       _num: 1
     })
@@ -103,7 +105,7 @@ Page({
       success: function(res) {
         console.log(res.data)
         that.setData({
-          actArray:res.data
+          actArray: res.data
         })
       }
     })

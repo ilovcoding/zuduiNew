@@ -13,7 +13,6 @@
     </view>
   </view>
 </view>
-<!-- 由bindid 控制的事件 -->
 <view wx:if='{{showModal}}'>
   <view class='modalInput'>
     <form bindsubmit='judgeid'>
@@ -23,7 +22,6 @@
     </form>
   </view>
 </view>
-<!-- 创建活动 样式一样 class都用wdfb -->
 <view class='wdfb' bindtap='create'>
   <image src='../../images/create.png'></image>
   <text style='font-size: 32rpx'>创建活动</text>

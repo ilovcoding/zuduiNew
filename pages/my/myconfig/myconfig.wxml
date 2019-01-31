@@ -1,12 +1,12 @@
 <view class='myconfig'>
-  <view bindtap='judge' data-type='studentid' >
+  <view bindtap='judge' data-formtype='studentid' >
     <text>学号</text>
     <view class='studentid'>
       <text style='color:gainsboro'>{{studentid}}</text>
       <image src='./myright.png'></image>
     </view>
   </view>
-  <view bindtap='judge' data-type='phone'>
+  <view bindtap='judge' data-formtype='phone'>
     <text>手机号</text>
     <view class='studentid'>
       <text style='color:gainsboro'>{{phone}}</text>

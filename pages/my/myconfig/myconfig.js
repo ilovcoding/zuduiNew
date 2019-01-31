@@ -30,9 +30,9 @@ Page({
 
   },
   judge: function(type) {
-    console.log(type)
+    // console.log(type)
     wx.navigateTo({
-      url: `judge?type=${type.target.dataset.type}`,
+      url: `judge?type=${type.currentTarget.dataset.formtype}`,
     })
   }
 })

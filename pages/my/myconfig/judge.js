@@ -1,4 +1,4 @@
-// pages/my/myconfig/judge.js
+let imgurl = getApp().globalData.httpUrl
 Page({
 
   /**
@@ -6,9 +6,12 @@ Page({
    */
   data: {
     studentid: false,
-    phone: false
+    phone: false,
+    stdid: '',
+    pwd: ''
   },
   onLoad: function(data) {
+    // console.log(data)
     if (data.type == 'studentid') {
       this.setData({
         studentid: true
@@ -23,10 +26,78 @@ Page({
   onShareAppMessage: function() {
 
   },
+  save: function(info) {
+    //存储学号密码 judge中获取
+    console.log(info)
+    if (info.currentTarget.dataset.name == 'stdid') {
+      this.setData({
+        stdid: info.detail.value
+      })
+    }
+    if (info.currentTarget.dataset.name == 'pwd') {
+      this.setData({
+        pwd: info.detail.value
+      })
+    }
+  },
   judgeid: function(info) {
     let that = this
-    let stdid = info.detail.value.stdid
-    let pwd = info.detail.value.pwd
+    if (info.detail.userInfo) {
+      wx.login({
+        success: function(res) {
+          wx.request({
+            url: imgurl + '/code',
+            data: {
+              js_code: res.code,
+              appid: 'wx1ecedeb284de75ae',
+              secret: '5ca9425bfc77fbc7b7f108c21cf29438',
+              encryptedData: info.detail.encryptedData,
+              iv: info.detail.iv,
+              userInfo: info.detail.userInfo
+            },
+            success: function(res) {
+              wx.setStorage({
+                key: "key_openid",
+                data: res.data.openId
+              })
+              //成功拿到数据之后
+              wx.request({
+                url: imgurl + '/adduser',
+                data: {
+                  nickName: res.data.nickName,
+                  avatarUrl: res.data.avatarUrl,
+                  province: res.data.province,
+                  country: res.data.country,
+                  openId: res.data.openId,
+                  studentid: info.currentTarget.dataset.stdid,
+                  pwd: info.currentTarget.dataset.pwd
+                },
+                success: function(res) {
+                  wx.setStorage({
+                    key: 'key_userid',
+                    data: res.data.userid,
+                  })
+                  wx.setStorage({
+                    key: 'key_userimg',
+                    data: res.data.image,
+                  })
+                }
+              })
+            }
+          })
+        }
+      })
+    } else {
+      //用户点击拒绝
+      wx.showModal({
+        title: '提示',
+        content: '小老弟，点击允许才能正常使用',
+        showCancel: false
+      })
+      return 0
+    }
+    let stdid = info.currentTarget.dataset.stdid
+    let pwd = info.currentTarget.dataset.pwd
     if (stdid.length != 10) {
       wx.showModal({
         title: '提示',
@@ -122,10 +193,10 @@ Page({
       })
     }
     //一路没错的电话号码执行下面代码
-   wx.setStorage({
-     key: 'phone',
-     data: phone,
-   })
+    wx.setStorage({
+      key: 'phone',
+      data: phone,
+    })
     wx.navigateBack({
       delta: 1
     })

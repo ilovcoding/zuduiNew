@@ -7,9 +7,12 @@ Page({
     studentid: '学号',
     showModal: false
   },
-  
+
   onLoad: function(options) {
-    var that = this;
+
+  },
+  onShow: function() {
+    let that = this
     wx.getUserInfo({
       success: function(res) {
         that.setData({
@@ -17,8 +20,6 @@ Page({
         })
       }
     })
-  },
-  onShow:function(){
     let studentinfo = wx.getStorageSync('studentinfo')
     this.setData({
       studentName: studentinfo.studentName,
@@ -31,7 +32,7 @@ Page({
       url: 'wdfb',
     })
   },
-  
+
   wdcy: function() {
     console.log("wdcy")
     wx.navigateTo({
@@ -72,7 +73,7 @@ Page({
         showCancel: false
       })
     }, 30000)
-    console.log((new Date).getTime())
+    // console.log((new Date).getTime())
     let requestSchool = wx.request({
       url: 'http://212.64.27.123:8002' + '/judgeid',
       data: {
@@ -80,8 +81,8 @@ Page({
         pwd: pwd
       },
       success: (res) => {
-        console.log((new Date).getTime())
-        console.log(res.data)
+        // console.log((new Date).getTime())
+        // console.log(res.data)
         clearTimeout(setNumber) //Timeout定时器的编号
         if (res.data.name) {
           wx.hideLoading()
