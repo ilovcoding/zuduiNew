@@ -1,0 +1,50 @@
+/* pages/message/search.wxss */
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 2rpx solid gainsboro
+}
+.input image{
+  margin-top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+.input{
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  color: gray;
+  background: whitesmoke;
+}
+.input input{
+  width: 500rpx;
+}
+.searchBtn{
+  float: right;
+  height: 60rpx;
+  font-size: 26rpx;
+  margin-right: 0;
+  margin-left: 0;
+}
+.heat{
+  font-size: 30rpx;
+  margin: 20rpx;
+}
+.list{
+  line-height: 100rpx;
+  border-top: 1rpx solid silver;
+  display: flex;
+  flex-direction: row;
+}
+.order{
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  font-weight: bolder;
+  color: orangered;
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+}

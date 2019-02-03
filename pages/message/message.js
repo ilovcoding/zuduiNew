@@ -13,72 +13,6 @@ Page({
     imgurl
   },
   onLoad: function() {
-    /*获取用户信息的函数转移
-    wx.getUserInfo({
-      success: function(res) {
-        let user_info = res.userInfo
-        wx.login({
-          success: function(res) {
-            if (res.code) {
-              wx.request({
-                url: imgurl + '/code',
-                data: {
-                  js_code: res.code,
-                  appid: 'wx1ecedeb284de75ae',
-                  secret: '5ca9425bfc77fbc7b7f108c21cf29438',
-                  grant_type: 'authorization_code',
-                  userinfo: user_info
-                },
-                success: function(res) {
-                  // console.log(res)
-                  let openid = res.data.openid
-                  if (openid) {
-                    wx.setStorage({
-                      key: 'errmsg',
-                      data: false,
-                    })
-                    wx.request({
-                      url: imgurl + '/adduser',
-                      data: {
-                        openid: openid,
-                        info: user_info
-                      },
-                      success: function(res) {
-                        // console.log('adduserres', res)
-                        // console.log("index", res.data)
-                        wx.setStorage({
-                          key: "key_openid",
-                          data: res.data.openid
-                        })
-                        wx.setStorage({
-                          key: "key_userid",
-                          data: res.data.userid
-                        })
-                        wx.setStorage({
-                          key: "key_userimg",
-                          data: res.data.image
-                        })
-                      }
-                    })
-                  } else {
-                    wx.setStorage({
-                      key: 'errmsg',
-                      data: true,
-                    })
-                    wx.showModal({
-                      title: '错误',
-                      content: `${res.data.errcode}/${res.data.errmsg}`
-                    })
-                    return false
-                  }
-                }
-              })
-            }
-          }
-        })
-      }
-    })
-    */
     this.setData({
       _num: 1
     })
@@ -112,55 +46,60 @@ Page({
   },
 
   change_band: function(e) {
-    //console.log(e)
-    this.setData({
-      _num: e.target.dataset.num,
-      array: []
-    })
-    if (e.target.dataset.num == 1) {
-      // 1  2
-      this.activity({
-        x: 1,
-        y: 2
+    let actType = e.target.dataset.num
+    if (actType == '4') {
+      //明理苑活动的时候
+      this.setData({
+        _num: e.target.dataset.num,
+        array: [],
+        mly: true
       })
-    }
-    if (e.target.dataset.num == 2) {
-      // 1   3
-      this.activity({
-        x: 1,
-        y: 3
+    } else {
+      this.setData({
+        _num: e.target.dataset.num,
+        array: [],
+        mly: false
       })
     }
 
-    if (e.target.dataset.num == 3) {
-      // 2 3
-      this.activity({
-        x: 2,
-        y: 3
-      })
+    switch (actType) {
+      case '1':
+        this.activity({
+          // 1 2 表示所有种类 ,1表示习惯2表示组队
+          x: 1,
+          y: 2
+        })
+        break;
+      case '2':
+        this.activity({
+          //3为空元素
+          x: 1,
+          y: 3
+        })
+        break;
+      case '3':
+        this.activity({
+          x: 2,
+          y: 3
+        })
+        break;
+      default:
+        this.activity({
+          //暂定0为明理苑活动
+          x: 0,
+          y: 0
+        })
     }
-  },
-  create_act: function() {
-    wx.getSetting({
-      success: (res) => {
-        if (res.authSetting['scope.userInfo']) {
-          wx.navigateTo({
-            url: '../create/create',
-          })
-        } else {
-          wx.navigateTo({
-            url: '../index/index',
-          })
-        }
-      }
-    })
-
   },
   teaminfo: function(e) {
-    // console.log(e)
-    // console.log(e.currentTarget.id)
     wx.navigateTo({
-      url: `../teaminfo/teaminfo?id=${e.currentTarget.id}&type=${e.currentTarget.dataset.acttype}`
+      url: `../teaminfo/teaminfo?id=${e.currentTarget.id}`
+    })
+  },
+  showImage: function(data) {
+    let showImageUrl = data.currentTarget.dataset.url
+    wx.navigateTo({
+      url: `showimage?url=${showImageUrl}`,
     })
   },
   onShareAppMessage: function() {
@@ -172,6 +111,11 @@ Page({
   gfactivity: () => {
     wx.navigateTo({
       url: '../gfactivity/gfactivity',
+    })
+  },
+  search:function(){
+    wx.navigateTo({
+      url: 'search',
     })
   }
 

@@ -52,3 +52,20 @@
   <text style='font-size: 32rpx'>设置</text>
   <image src='../../images/myright.png' class='right'></image>
 </view>
+<!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{rangArray}}">
+    <view class="picker">
+      当前选择：{{array[index]}}
+    </view>
+  </picker> -->
+
+<cover-view wx:if='{{showSelectModal}}' class='select' catchtap='closeSelectModal'>
+  <cover-view class='whiteband'>
+    <cover-view class='selectOptions' data-type='1' catchtap='create'>
+      习惯养成
+    </cover-view>
+    <cover-view class='whiteline'></cover-view>
+    <cover-view class='selectOptions' data-type='2' catchtap='create'>
+      比赛组队
+    </cover-view>
+  </cover-view>
+</cover-view>

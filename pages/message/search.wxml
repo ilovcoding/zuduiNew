@@ -1,0 +1,13 @@
+<view class='search'>
+  <view class='input'>
+    <image src='../../images/search.png'></image>
+    <input focus='true' placeholder='请输入你想搜索的内容' bindblur='saveSearch'></input>
+  </view>
+  <button class='searchBtn' type='mini' catchtap='search'>搜索</button>
+</view>
+<view wx:if='{{search}}' class='heat'>搜索结果</view>
+<view wx:else class='heat'>热门活动</view>
+<view class='list' wx:for='{{actArray}}' catchtap='active' data-actid='{{item.id}}'>
+  <view class='order' >{{index+1}}</view>
+  <view class='actName'>{{item.head}}</view>
+</view>

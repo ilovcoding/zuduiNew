@@ -1,111 +1,77 @@
+.res-title {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 30rpx;
+  border-bottom: 2rpx solid gainsboro;
+  font-size: 26rpx;
+  font-weight: bolder;
+}
+
+.text-area {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size: 26rpx;
+  font-weight: bolder;
+}
+
 .images-wrapper {
-    background-color: #fff;
-    height:240rpx
+  background-color: #fff;
+  height: 240rpx;
 }
 
 .images-list {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .images-image {
-    width: 112rpx;
-    height: 112rpx;
-    margin-top: 8rpx;
-    margin-left: 8rpx;
+  width: 112rpx;
+  height: 112rpx;
+  margin-top: 8rpx;
+  margin-left: 8rpx;
 }
 
 .images-image-plus {
-    border: 1px solid #999;
-    height: 112rpx;
-    width: 112rpx;
+  border: 1px solid #999;
+  height: 112rpx;
+  width: 112rpx;
 }
 
-.res-title {
-    background-color: #fff;
-    display: flex;
-    height: 86rpx;
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
 }
 
-.res-info {
-    background:#efeff4;
-    display: block;
-    color: #888888;
-    font-size: 26rpx;
-    padding-top: 20rpx;
-    padding-left: 30rpx;
-    padding-bottom: 20rpx;
+.userInfo view {
+  border-bottom: 2rpx solid gainsboro;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 26rpx;
+  line-height: 80rpx;
+  font-weight: bolder;
 }
 
-.res-tag {
-    color: #000000;
-    flex-grow: 1;
-    align-self: center;
-    padding-left: 30rpx;
-    font-size: 32rpx;
-}
+/* .userInfo view text {
+} */
 
-.res-title input {
-    flex-grow: 7;
-    color: #000;
-    align-self: center;
-    font-size: 30rpx;
-}
-
-textarea {
-    width: 100%;
-    height: 146rpx;
-    color: #000;
-    background-color: #fff;
-    font-size: 34rpx;
-    margin-bottom: 24rpx;
-}
-
-.line{
-  background: #efeff4;
-  height: 10rpx;
-  width: 100%
-}
-
-
-.category {
-    background-color: #fff;
-    height: 84rpx;
-    margin-bottom: 24rpx;
-}
-
-.picker {
-    display: flex;
-}
-
-.picker-title {
-    color: #000;
-    font-size: 34rpx;
-    align-self: center;
-    flex-grow: 8;
-    padding-left: 30rpx;
-    line-height: 80rpx;
-}
-
-.picker-icon {
-    align-self: center;
-    text-align: center;
-    flex-grow: 1;
-    color: #999;
-    font-size: 45rpx;
-}
-
-.message {
-    color: #888888;
-    margin-bottom: 20rpx;
-    font-size: 24rpx;
-    padding: 20rpx
+.userInfo view input {
+  padding-top: 14rpx;
 }
 
 button {
-    color: #fff;
-    font-size: 34rpx;
-    width: 660rpx;
-    height: 86rpx;
-    background: #09bb07
+  color: #fff;
+  font-size: 34rpx;
+  width: 660rpx;
+  height: 86rpx;
+  background: #09bb07;
+}
+
+.message {
+  margin: 30rpx;
+  font-size: 20rpx;
+  color: gray;
 }

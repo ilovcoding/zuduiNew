@@ -1,0 +1,16 @@
+.showImage{
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  /* 垂直居中代码 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coverImage{
+  width: 100%
+}

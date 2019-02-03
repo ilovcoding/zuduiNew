@@ -1,11 +1,10 @@
 {
   "pages": [
     "pages/message/message",
-    "pages/index/index",
+    "pages/create/create",
     "pages/gfactivity/gfactivity",
     "pages/my/my",
     "pages/card/card",
-    "pages/create/create",
     "pages/teaminfo/teaminfo",
     "pages/my/wdfb",
     "pages/my/wdcy",
@@ -35,7 +34,9 @@
     "pages/my/mycount/mycount",
     "pages/my/mycount/countinfo/countinfo",
     "pages/my/myconfig/myconfig",
-    "pages/my/myconfig/judge"
+    "pages/my/myconfig/judge",
+    "pages/message/showimage",
+    "pages/message/search"
   ],
   "window": {
     "backgroundColor": "#eeeeee",

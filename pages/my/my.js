@@ -123,13 +123,30 @@ Page({
       url: './myconfig/myconfig',
     })
   },
-  create: function() {
+  closeSelectModal: function() {
+    this.setData({
+      showSelectModal: false
+    })
+  },
+  create: function(data) {
+    if (data.currentTarget.dataset.type) {
+      // 如果有活动类型 说明是 cover-view 的点击事件
+      //先关闭selectModal
+      this.closeSelectModal()
+      wx.navigateTo({
+        url: `../create/create?type=${data.currentTarget.dataset.type}`,
+      })
+      //防止继续执行下去
+      return 0
+    }
     let studentinfo = wx.getStorageSync('studentinfo')
     if (studentinfo) {
       //绑定好学号的时候
-      wx.navigateTo({
-        url: '../create/create',
+      //1.先触发底部选择器
+      this.setData({
+        showSelectModal: true
       })
+      return 0
     } else {
       //没绑定学号引导用户绑定学号
       wx.showModal({

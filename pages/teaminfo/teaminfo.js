@@ -1,6 +1,3 @@
-/*
-          imgUrls:[imgurl+'/img_'+res.data.open_id+'_'+parseInt(res.data.time/10000)+'_0.png']
-*/
 let app = getApp()
 let imgurl = app.globalData.httpUrl
 let URL = app.globalData.httpUrl
@@ -15,79 +12,74 @@ Page({
     item: [],
     imgUrls: imgarr,
     buttontext: "我要加入",
-    isjoin: false
+    userjoin: false
   },
 
   onLoad: function(data) {
     let that = this
-    // if (data.type == "1") {
-    //   key_openid = wx.getStorageSync("key_openid")
-    //   key_userid=wx.getStorageSync("key_userid")
-    //   wx.request({
-    //     url: URL + '/isjoin',
-    //     data: {
-    //       openid: key_openid,
-    //       actid: data.id,
-    //       userid: key_userid
-    //     },
-    //     success: (res) => {
-    //       console.log(res)
-    //       that.setData({
-    //         buttontext: "您已加入",
-    //         isjoin: res.data.isjoin
-    //       })
-    //     }
-    //   })
-    // }
-    imgarr = []
-    actid = data.id
-    //console.log("data", data)
-    this.setData({
-      acttype: data.type
-    })
+    key_openid = wx.getStorageSync('key_openid')
+    console.log(data)
+    if (key_openid) {
+
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '未绑定学号无法查看活动详情',
+        success: (res) => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../my/myconfig/myconfig',
+            })
+          } else {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
+      })
+      return 0
+    }
     wx.request({
-      url: app.globalData.httpUrl + '/hobby',
+      url: URL + '/actinfo',
       data: {
-        id: data.id
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
+        id: data.id,
+        openid: key_openid
       },
       success: function(res) {
-        actinfo = res
-        // console.log(res.data)
-        var time1 = new Date(parseInt(res.data.time))
-        var time2 = (time1.getMonth() + 1) + '月' + time1.getDate() + '日'
-        // console.log("time2", time2)
-        that.setData({
-          item: res.data,
-          fbtime: time2,
-          name: res.data.name,
-          tel: res.data.tel,
-          qq: res.data.qq
-        })
-        wx.request({
-          url: imgurl + '/getindex',
-          data: {
-            actid: actid
-          },
-          success: (res) => {
-            for (let i = 0; i <= res.data.index; i++) {
-              imgarr[i] = imgurl + '/img_' + res.data.openid + '_' + actid + '_' + i + '.png'
-            }
-            that.setData({
-              imgUrls: imgarr
+        console.log(res)
+        let [active, joininfo] = [res.data.active, res.data.joininfo]
+        if (joininfo) {
+          //用户已加入
+          if (active.type == 1) {
+            //说明这是习惯养成类
+            wx.redirectTo({
+              url: `../card/cardinfo?actid=${active.id}`,
             })
-            // console.log(imgarr)
-            imgarr = []
+            return 0
           }
+          that.setData({
+            userjoin: true,
+            creater: joininfo.creater
+          })
+        }
+        let actimgUrl = `${imgurl}/${active.open_id}/${active.id}/`
+        let time1 = new Date(parseInt(active.time))
+        let time2 = (time1.getMonth() + 1) + '月' + time1.getDate() + '日'
+        that.setData({
+          active: active,
+          fbtime: time2,
+          name: active.name,
+          tel: active.tel,
+          qq: active.qq,
+          actimgUrl: actimgUrl,
+          type: active.type,
+          actid: active.id
         })
       }
     })
   },
   more: function() {
     wx.showModal({
-
       content: '感兴趣吗？点击按钮加入吧',
       success: function(res) {
         if (res.confirm) {
@@ -99,14 +91,11 @@ Page({
     })
   },
 
-  join: function() {
+  join: function(data) {
     let that = this
-    try {
-      key_userid = wx.getStorageSync("key_userid")
-      key_openid = wx.getStorageSync("key_openid")
-    } catch (e) {
-      //
-    }
+    let [actid, type] = [data.currentTarget.dataset.actid, data.currentTarget.dataset.type]
+    key_userid = wx.getStorageSync("key_userid")
+    key_openid = wx.getStorageSync("key_openid")
     wx.showModal({
       title: '提示',
       content: '是否确认加入',
@@ -114,17 +103,16 @@ Page({
         if (res.confirm) {
           // console.log('用户点击确定')
           wx.request({
-            url: URL + '/isjoin',
+            url: URL + '/userjoin',
             data: {
               openid: key_openid,
-              actid: actinfo.data.id,
+              actid: actid,
               userid: key_userid
             },
             success: (res) => {
               // console.log(res)
               that.setData({
-                buttontext: "您已加入",
-                isjoin: res.data.isjoin
+                userjoin: res.data.userjoin
               })
             }
           })
@@ -134,60 +122,9 @@ Page({
       }
     })
   },
-  wantjoin: () => {
-    wx.navigateTo({
-      url: 'wantjoin?actid=' + actinfo.data.id + '&type=wantjoin',
-    })
-  },
-  update: () => {
-    wx.navigateTo({
-      url: 'wantjoin?actid=' + actinfo.data.id + '&type=update',
-    })
-  },
   onShow: function() {
     let that = this
-    //console.log("onshow")
-    try {
-      key_openid = wx.getStorageSync("key_openid")
-    } catch (e) {
-      console.log(e)
-    }
-    wx.request({
-      url: URL + '/isjoin',
-      data: {
-        actid: actid,
-        openid: key_openid,
-      },
-      success: (res) => {
-        // console.log(res.data)
-        that.setData({
-          isjoin: res.data.isjoin,
-          buttontext: res.data.buttontext
-        })
-      }
-    })
-    wx.request({
-      url: imgurl + '/findMyinfo',
-      data: {
-        actid: actid,
-        openid: key_openid
-      },
-      success: (res) => {
-        // console.log(res.data)
-        if (res.data.myAct == false) {
-          that.setData({
-            myAct: res.data.myAct,
-            myName: res.data.name,
-            myTel: res.data.tel,
-            myQq: res.data.qq
-          })
-        } else {
-          that.setData({
-            myAct: res.data.myAct
-          })
-        }
-      }
-    })
+    key_openid = wx.getStorageSync("key_openid")
     wx.request({
       url: imgurl + '/cardinfo',
       data: {
@@ -210,9 +147,12 @@ Page({
       }
     })
   },
-  /**
-   * 用户点击右上角分享
-   */
+  showImage: function(data) {
+    let showImageUrl = data.currentTarget.dataset.url
+    wx.navigateTo({
+      url: `../message/showimage?url=${showImageUrl}`,
+    })
+  },
   onShareAppMessage: function() {
     return {
       title: '微信关注微言合工大',

@@ -69,8 +69,8 @@ Page({
                   province: res.data.province,
                   country: res.data.country,
                   openId: res.data.openId,
-                  studentid: info.currentTarget.dataset.stdid,
-                  pwd: info.currentTarget.dataset.pwd
+                  studentid: 0,
+                  pwd: 0
                 },
                 success: function(res) {
                   wx.setStorage({

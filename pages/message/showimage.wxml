@@ -1,0 +1,3 @@
+<view  class='showImage' catchtap='back'>
+  <image mode='widthFix' src='{{showImageUrl}}' class='coverImage'></image>
+</view>

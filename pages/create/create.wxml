@@ -1,65 +1,49 @@
-<view>
-    <form bindsubmit="formSubmit">
-        <view>
-            <text class='res-info'>请输入标题</text>
-            <view class="res-title">
-                <text class='res-tag'>标题</text>
-                <input placeholder="在此处输入标题" name="title" bindblur='checkTitle'></input>
-            </view>         
-        </view>
-        <view>
-            <text class='res-info'>请输入具体信息</text>
-            <textarea maxlength="150" name="content" bindblur='checkContent' style='height:200rpx;' placeholder='我们需要……'>
-                </textarea>
-
-        <view class="line"></view>
-        </view>      
-        <view class="images-wrapper">
-            <view class="images-list">
-                <view wx:for="{{imageList}}">
-                    <image src="{{item}}" class="images-image" data-src="{{image}}" catchtap='delImg' data-imgIndex='{{index}}'></image>
-                </view>
-                <image wx:if="{{add_img}}" src="/images/plus.png" class="images-image images-image-plus" bindtap="chooseImage"></image>
-            </view>
-        </view>
-        <view class="line"></view>
-        <view class='category' >
-            <picker  range="{{category}}" name="category" bindchange='chooseCategory'> 
-            <view class='picker'>
-                <view class="picker-title">
-                    组队类型 
-                </view>
-                
-                <view class='picker-icon'><text style='font-size:34rpx;color:#000000;'>{{current}}</text> ></view>
-            </view>
-
-            </picker>
-        </view>
-<view class="line"></view>
-        <view>
-            <view class="res-title">
-                <text class='res-tag'>姓名:</text>
-                <input placeholder="请输入姓名" name="name" maxlength='6'></input>
-            </view>         
-        </view>
-        <view>
-            <view class="res-title">
-                <text class='res-tag'>手机:</text>
-                <input placeholder="请输入手机号" name="phone" bindblur="checkPhone"></input>
-            </view>         
-        </view>   
-
-        <view>
-            <view class="res-title">
-                <text class='res-tag'>qq号:</text>
-                <input placeholder="请输入qq号" name="qq" bindblur='checkQQ'></input>
-            </view>         
-        </view>                  
-     
-
-        <view class='message'>* 组队类型为必选，同时请留下必要的联系方式以方便看到信息的人来联系你。</view>       
-        <view  class="btn-area">
-            <button formType="submit" type='primary'>发布</button>
-        </view>                 
-    </form>
+<form bindsubmit="formSubmit">
+  <view class="res-title">
+    <input placeholder="输入活动标题|必填" name="title" maxlength='15'></input>
+  </view>
+  <view class='text-area'>
+    <textarea maxlength="400" name="content" style='height:200rpx;' placeholder='输入活动内容|必填'>
+    </textarea>
+  </view>
+  <!-- 选择图片的模块 -->
+  <view class="images-wrapper">
+    <view class="images-list">
+      <view wx:for="{{imageList}}">
+        <image src="{{item}}" class="images-image" data-src="{{image}}" catchtap='delImg' data-imgIndex='{{index}}'></image>
+      </view>
+      <image wx:if="{{add_img}}" src="/images/plus.png" class="images-image images-image-plus" bindtap="chooseImage"></image>
+    </view>
+  </view>
+  <!-- 用户信息模块 -->
+  <view class='userInfo'>
+    <!-- 组队类型 -->
+    <view>
+      <text>组队类型</text>
+      <picker range="{{pickArray}}" bindchange='chooseCategory'>
+        <text>{{type}}</text> >
+      </picker>
+    </view>
+    <!-- 姓名 -->
+    <view>
+      <text>姓名:</text>
+      <view>{{name}}</view>
+    </view>
+    <view>
+      <text>手机号:</text>
+      <input name="phone" placeholder='必填' value='{{phone}}' type='number' maxlength='11'>
+      </input>
+      <view wx:if='{{clickPhone}}'>{{phone}}</view>
+    </view>
+    <view>
+      <text class='res-tag'>QQ号:</text>
+      <input placeholder="选填" name="qq" value='{{QQ}}' type='number'></input>
+      <view wx:if='{{clickQQ}}'>{{QQ}}</view>
+    </view>
+  </view>
+  <view class="btn-area">
+    <button form-type='submit' type='primary'>发布</button>
+  </view>
+</form>
+<view class='message'>比赛组队需要留下必要的联系方式,以方便看到信息的人来联系你,同时你也可以在我的发布里面看到加入者信息,习惯养成类不会互相显示信息！
 </view>

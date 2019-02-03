@@ -1,69 +1,48 @@
 <view class='back'></view>
 <view class='background'>
-  <view class='head'>{{item.head}}</view>
+  <view class='head'>{{active.head}}</view>
   <view class='time'>
-      <view> 发布时间：{{fbtime}}</view>
-      <view>发布人：{{item.name}}</view>
+    <view> 发布时间：{{fbtime}}</view>
+    <view>发布人：{{active.name}}</view>
   </view>
-  <swiper autoplay='true' interval='3000' circular='true' duration='2000' class='swi'>
-    <block wx:for="{{imgUrls}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" />
-      </swiper-item>
-    </block>
-  </swiper>
+  <view class='{{"img"+active.actimage.length}}'>
+    <image wx:for='{{active.actimage}}' src='{{actimgUrl+index+".png"}}' catchtap='showImage' data-url='{{actimgUrl+index+".png"}}'></image>
+  </view>
   <view class='info'>
-    {{item.text}}
+    {{active.text}}
   </view>
-  <view wx:if="{{item.isend==1}}" class='join'>
-    共有{{item.count}}人加入你要加入吗？
+  <view class='join'>
+    共有{{active.count}}人加入
   </view>
-  <view wx:if="{{acttype==2&&isjoin&&item.isend==1}}" class='master_info'>
+  <view wx:if="{{userjoin}}" class='masterInfo'>
     <view>
-      <text style='width:150rpx;'>联系人：</text>
+      <text>发布人：</text>
       <text>{{name}}</text>
     </view>
     <view>
-      <text style='width:150rpx;'>手机号：</text>
+      <text>手机号：</text>
       <text>{{tel}}</text>
     </view>
     <view>
-      <text style='width:150rpx;'>QQ号：</text>
+      <text>QQ号：</text>
       <text>{{qq}}</text>
     </view>
   </view>
-  <button wx:if="{{item.isend==1}}" type='primary' size='mini' style='margin-left:250rpx;margin-top:40rpx;width:292rpx;height:60rpx' bindtap='{{acttype==1?"join":"wantjoin"}}' disabled='{{isjoin}}'>{{buttontext}}</button>
-
-  <view wx:if="{{myAct==false&item.isend==1}}" class='master_info' style='margin-top:30rpx;'>
-    <view>
-      <text style='width:150rpx;'>姓名：</text>
-      <text>{{myName}}</text>
-    </view>
-    <view>
-      <text style='width:150rpx;'>手机号：</text>
-      <text>{{myTel}}</text>
-    </view>
-    <view>
-      <text style='width:150rpx;'>QQ号：</text>
-      <text>{{myQq}}</text>
-    </view>
+  <view class='button'>
+    <button wx:if="{{userjoin}}" type='primary' size='mini' bindtap='join' data-type='{{type}}' data-actid='{{actid}}'>我要加入</button>
   </view>
-  <button type='primary' size='mini' style='margin-left:300rpx;margin-top:40rpx' bindtap='update' wx:if="{{myAct==false&item.isend==1}}">修改信息</button>
-
-
-  <view wx:if="{{acttype==1&item.isend==1}}">
+  <view wx:if="{{acttype==1}}">
     <view style='margin-left:40rpx;font-size:28rpx;color:#5f6874'>
       打卡动态
     </view>
-
     <view class='hobby' wx:for="{{dtarr}}">
-      <image src='{{item.image}}'></image>
+      <image src='{{active.image}}'></image>
       <view style='margin-top:40rpx;font-size:24rpx'>
-        <text style='margin-right:20rpx'>{{item.name}}</text>
-        <text>{{item.cardtime}}打卡</text>
-        <view>{{item.cardtext}}</view>
+        <text style='margin-right:20rpx'>{{active.name}}</text>
+        <text>{{active.cardtime}}打卡</text>
+        <view>{{active.cardtext}}</view>
       </view>
     </view>
-    <button class='more' bindtap='more' wx:if="{{!isjoin}}">显示更多</button>
+    <button class='more' bindtap='more' wx:if="{{!userjoin}}">显示更多</button>
   </view>
 </view>
