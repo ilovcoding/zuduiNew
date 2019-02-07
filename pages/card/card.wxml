@@ -3,12 +3,12 @@
   <image class='all_image' src='../../images/gfactivity.jpg'></image>
   <view class='gfactive'>打卡一月，成为更好的自己</view>
 </button> -->
-<view wx:for="{{array}}" class='all_list' catchtap='cardinfo' data-iscard='{{item.iscard}}' id='{{item.id}}' wx:if="{{item.isend==1}}">
-  <image class='all_image' src='{{item.userid}}'></image>
+<view wx:for="{{array}}" class='all_list' catchtap='cardinfo' data-iscard='{{item.iscard}}' id='{{item.id}}'>
+  <image class='all_image' src='{{imgurl+"/"+item.active.open_id+"/"+item.active.id+"/0.png"}}'></image>
   <view style='width:600rpx;'>
-    <view class='itemHead'>{{item.head}}</view>
-    <view class='actText'>{{item.text}}</view>
-    <view class='actText'>{{item.count}}人已申请加入</view>
+    <view class='itemHead'>{{item.active.head}}</view>
+    <view class='actText'>{{item.active.text}}</view>
+    <view class='actText'>{{item.active.count}}人已申请加入</view>
   </view>
   <button class='iscard' catchtap='getcard' id='{{item.id}}' disabled='{{item.iscard==1}}'>{{item.iscard==1?"OK":"打卡"}}</button>
   <button class='iscard2' catchtap='day' id='{{item.id}}'>日历</button>

@@ -16,14 +16,14 @@ Page({
   onLoad: function (options) {
       let that=this
       wx.request({
-          url:URL+ '/findteaminfo',
+          url:URL+ '/showjoinuser',
           data:{
               actid:options.actid
           },
           success:function(res){
               console.log(res.data)
               that.setData({
-                  user:res.data.user
+                  user:res.data
               })
           }
       })

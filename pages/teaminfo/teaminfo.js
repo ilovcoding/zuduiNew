@@ -6,19 +6,18 @@ let actid;
 let actinfo;
 let key_openid;
 let key_userid;
+let studentinfo, phone
 Page({
-
   data: {
     item: [],
     imgUrls: imgarr,
-    buttontext: "我要加入",
     userjoin: false
   },
 
   onLoad: function(data) {
+    console.log('data', data)
     let that = this
     key_openid = wx.getStorageSync('key_openid')
-    console.log(data)
     if (key_openid) {
 
     } else {
@@ -46,7 +45,7 @@ Page({
         openid: key_openid
       },
       success: function(res) {
-        console.log(res)
+        console.log('res', res)
         let [active, joininfo] = [res.data.active, res.data.joininfo]
         if (joininfo) {
           //用户已加入
@@ -93,34 +92,90 @@ Page({
 
   join: function(data) {
     let that = this
+    //首先获得此活动的id和活动类型
     let [actid, type] = [data.currentTarget.dataset.actid, data.currentTarget.dataset.type]
-    key_userid = wx.getStorageSync("key_userid")
-    key_openid = wx.getStorageSync("key_openid")
+    key_userid = wx.getStorageSync("key_userid") //用户id
+    key_openid = wx.getStorageSync("key_openid") //用户标识符
+    studentinfo = wx.getStorageSync('studentinfo') //用户姓名
+    phone = wx.getStorageSync('phone')
+    phone = phone || studentinfo.tel2 || studentinfo.tel1 //用户电话号码
+    //如果是习惯养成类则不需要验证任何东西直接加入即可
+    if (type == 1) {
+      wx.showModal({
+        title: '提示',
+        content: '是否确认加入',
+        success: function(res) {
+          if (res.confirm) {
+            that.joinuser({
+              openid: key_openid,
+              actid: actid,
+              userid: key_userid,
+              name: studentinfo.name,
+              phone: phone,
+              qq: qq
+            })
+          }
+        }
+      })
+      return 0
+    }
+    //下面是参加比赛组队的用户代码流程比较麻烦要先进行身份信息验证
+    let phonereg = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))+\d{8}$/
+    if (!phonereg.test(phone)) {
+      wx.showModal({
+        title: '提示',
+        content: `您输的号码${phone}可能不对,去设置中添加或修改手机号`,
+        success: function(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../my/myconfig/myconfig',
+            })
+          }
+        }
+      })
+      return 0
+    }
+    let qq = wx.getStorageSync('qq')
+    if (qq.length == 0) {
+      wx.showModal({
+        title: '提示',
+        content: '在设置中绑定QQ更方便发布者联系你,是否去绑定QQ',
+        success: function(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../my/myconfig/myconfig',
+            })
+            return 0
+          }
+        }
+      })
+      that.joinuser({
+        openid: key_openid,
+        actid: actid,
+        userid: key_userid,
+        name: studentinfo.name,
+        phone: phone,
+        qq: qq
+      })
+      return 0
+    }
     wx.showModal({
       title: '提示',
       content: '是否确认加入',
       success: function(res) {
         if (res.confirm) {
-          // console.log('用户点击确定')
-          wx.request({
-            url: URL + '/userjoin',
-            data: {
-              openid: key_openid,
-              actid: actid,
-              userid: key_userid
-            },
-            success: (res) => {
-              // console.log(res)
-              that.setData({
-                userjoin: res.data.userjoin
-              })
-            }
+          that.joinuser({
+            openid: key_openid,
+            actid: actid,
+            userid: key_userid,
+            name: studentinfo.studentName,
+            phone: phone,
+            qq: qq
           })
-        } else if (res.cancel) {
-          // console.log('用户点击取消')
         }
       }
     })
+    return 0
   },
   onShow: function() {
     let that = this
@@ -158,5 +213,47 @@ Page({
       title: '微信关注微言合工大',
       path: '/pages/index/index'
     }
+  },
+  joinuser: function({
+    openid,
+    actid,
+    userid,
+    name = '',
+    qq = '',
+    phone = ''
+  }) {
+    let that = this
+    wx.request({
+      url: URL + '/userjoin',
+      data: {
+        openid: openid,
+        actid: actid,
+        userid: userid,
+        qq: qq,
+        phone: phone,
+        name: name
+      },
+      success: function(res) {
+        that.setData({
+          userjoin: res.data.join
+        })
+        wx.showModal({
+          title: '提示',
+          content: '加入成功',
+          showCancel: false,
+          success: function() {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        })
+      }
+    })
+  },
+  showJoinUser: function(data) {
+    wx.navigateTo({
+      url: `../my/userinfo?actid=${data.currentTarget.dataset.actid}`,
+    })
+
   }
 })

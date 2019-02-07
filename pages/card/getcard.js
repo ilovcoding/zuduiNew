@@ -59,13 +59,8 @@ Page({
         success: function(res) {}
       })
     }
-    console.log('patharr', patharr)
-    try {
-      key_openid = wx.getStorageSync("key_openid")
-      key_userid = wx.getStorageSync("key_userid")
-    } catch (e) {
-      console.log(e)
-    }
+    key_openid = wx.getStorageSync("key_openid")
+    key_userid = wx.getStorageSync("key_userid")
     if (patharr[0]) {
       for (let i = 0; i < patharr.length; i++) {
         wx.uploadFile({
@@ -95,8 +90,6 @@ Page({
         text: value_text
       },
       success: (res) => {
-        // console.log(res.data)
-
       }
     })
     wx.switchTab({

@@ -19,11 +19,13 @@ Page({
     let myphone = wx.getStorageSync('phone')
     let phone = myphone || studentinfo.tel2 || studentinfo.tel1
     let openid = wx.getStorageSync('key_openid')
+    let QQ = wx.getStorageSync('qq')
     this.setData({
       studentid: studentinfo.studentid,
       phone,
       name: studentinfo.studentName,
-      openid
+      openid,
+      QQ
     })
   },
   onShareAppMessage: function() {

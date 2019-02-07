@@ -88,7 +88,7 @@ Page({
       },
       success: function(res) {
         actinfo = res.data.active
-        var time1 = new Date(parseInt(res.data.time))
+        var time1 = new Date(parseInt(res.data.active.time))
         var time2 = (time1.getMonth() + 1) + '月' + time1.getDate() + '日'
         that.setData({
           fbtime: time2,
@@ -96,21 +96,6 @@ Page({
           name: actinfo.name,
           tel: actinfo.tel,
           qq: actinfo.qq
-        })
-        wx.request({
-          url: imgurl + '/getindex',
-          data: {
-            actid: actid
-          },
-          success: (res) => {
-            for (let i = 0; i <= res.data.index; i++) {
-              imgarr[i] = imgurl + '/img_' + res.data.openid + '_' + actid + '_' + i + '.png'
-            }
-            that.setData({
-              imgUrls: imgarr
-            })
-            imgarr = []
-          }
         })
       }
     })

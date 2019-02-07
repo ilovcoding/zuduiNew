@@ -7,6 +7,7 @@ Page({
   data: {
     studentid: false,
     phone: false,
+    qq: false,
     stdid: '',
     pwd: ''
   },
@@ -20,6 +21,11 @@ Page({
     if (data.type == 'phone') {
       this.setData({
         phone: true
+      })
+    }
+    if (data.type == 'qq') {
+      this.setData({
+        qq: true
       })
     }
   },
@@ -176,26 +182,34 @@ Page({
     if (!phonereg.test(phone)) {
       wx.showModal({
         title: '提示',
-        content: `检测到您输的号码${phone}可能不对是否保存`,
-        success: function(res) {
-          if (res.confirm) {
-            wx.setStorage({
-              key: 'phone',
-              data: phone,
-            })
-            wx.navigateBack({
-              delta: 1
-            })
-          } else {
-            return 0
-          }
-        }
+        content: `您输的号码${phone}可能不对,反馈QQ群956125459`,
+        showCancel: false
       })
+      return 0
     }
     //一路没错的电话号码执行下面代码
     wx.setStorage({
       key: 'phone',
       data: phone,
+    })
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  judgeqq: function(info) {
+    let that = this
+    let qq = info.detail.value.qq
+    if (!qq) {
+      wx.showModal({
+        title: '提示',
+        content: `请输入QQ号`,
+        showCancel: false
+      })
+      return 0
+    }
+    wx.setStorage({
+      key: 'qq',
+      data: qq,
     })
     wx.navigateBack({
       delta: 1

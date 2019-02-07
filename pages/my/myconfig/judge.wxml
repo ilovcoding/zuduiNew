@@ -7,8 +7,14 @@
   </view>
 </form>
 <form wx:if="{{phone}}" bindsubmit='judgephone'>
-  <input placeholder='输入手机号' type='number' maxlength='13' name='phone'></input>
+  <input placeholder='输入手机号' type='number' maxlength='11' name='phone'></input>
   <view>
     <button form-type='submit' type='primary' size='mini'>保存手机号</button>
+  </view>
+</form>
+<form wx:if="{{qq}}" bindsubmit='judgeqq'>
+  <input placeholder='输入QQ号' type='number' maxlength='20' name='qq'></input>
+  <view>
+    <button form-type='submit' type='primary' size='mini'>保存QQ号</button>
   </view>
 </form>

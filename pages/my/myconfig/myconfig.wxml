@@ -1,5 +1,5 @@
 <view class='myconfig'>
-  <view bindtap='judge' data-formtype='studentid' >
+  <view bindtap='judge' data-formtype='studentid'>
     <text>学号</text>
     <view class='studentid'>
       <text style='color:gainsboro'>{{studentid}}</text>
@@ -10,6 +10,13 @@
     <text>手机号</text>
     <view class='studentid'>
       <text style='color:gainsboro'>{{phone}}</text>
+      <image src='./myright.png'></image>
+    </view>
+  </view>
+  <view bindtap='judge' data-formtype='qq'>
+    <text>QQ</text>
+    <view class='studentid'>
+      <text style='color:gainsboro'>{{QQ}}</text>
       <image src='./myright.png'></image>
     </view>
   </view>
