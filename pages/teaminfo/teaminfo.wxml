@@ -8,6 +8,8 @@
   <view class='{{"img"+active.actimage.length}}'>
     <image wx:for='{{active.actimage}}' src='{{actimgUrl+index+".png"}}' catchtap='showImage' data-url='{{actimgUrl+index+".png"}}'></image>
   </view>
+
+  
   <view class='info'>
     {{active.text}}
   </view>

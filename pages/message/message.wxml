@@ -32,9 +32,9 @@
       </view>
       <!-- 打卡人数 -->
       <view>
-        <image src='../../images/comment.png'>
+        <!-- <image src='../../images/comment.png'>
         </image>
-        <text>1024</text>
+        <text>1024</text> -->
       </view>
       <!-- 转发到朋友圈 -->
       <view>

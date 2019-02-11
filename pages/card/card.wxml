@@ -10,6 +10,7 @@
     <view class='actText'>{{item.active.text}}</view>
     <view class='actText'>{{item.active.count}}人已申请加入</view>
   </view>
+  <!--  -->
   <button class='iscard' catchtap='getcard' id='{{item.id}}' disabled='{{item.iscard==1}}'>{{item.iscard==1?"OK":"打卡"}}</button>
   <button class='iscard2' catchtap='day' id='{{item.id}}'>日历</button>
 </view>

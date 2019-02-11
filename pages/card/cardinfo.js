@@ -8,7 +8,6 @@ let key_openid
 let key_userid
 let key_userimg
 let card_time
-let phb_arr = []
 let IScard
 Page({
 
@@ -29,7 +28,8 @@ Page({
     dt: true,
     phb: false,
     phb_user_name: "",
-    phb_day: 0
+    phb_day: 0,
+    imgurl
   },
   change: function(e) {
     this.onShow()
@@ -83,19 +83,18 @@ Page({
       data: {
         id: data.actid
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
       success: function(res) {
         actinfo = res.data.active
         var time1 = new Date(parseInt(res.data.active.time))
         var time2 = (time1.getMonth() + 1) + '月' + time1.getDate() + '日'
+        let actimgUrl = `${imgurl}/${res.data.active.open_id}/${res.data.active.id}/`
         that.setData({
           fbtime: time2,
           item: actinfo,
           name: actinfo.name,
           tel: actinfo.tel,
-          qq: actinfo.qq
+          qq: actinfo.qq,
+          actimgUrl
         })
       }
     })
@@ -106,17 +105,8 @@ Page({
         openid: key_openid
       },
       success: (res) => {
-        var info = res.data.cardinfo
-        var dttime = info[0].cardtime
-        let DTarr = res.data.cardinfo
-        let DTarr2 = []
-        let arrlength = DTarr.length
-        DTarr.forEach((value, index, input) => {
-          DTarr2[arrlength - 1] = input[index];
-          arrlength--;
-        })
         that.setData({
-          dtarr: DTarr2,
+          dtarr: res.data
         })
       }
     })
@@ -130,55 +120,25 @@ Page({
       },
       success: function(res) {
         that.setData({
-          all_user: res.data.num,
-          we_img: res.data.imgarr
+          all_user: res.data.length,
+          we_img: res.data
         })
       }
     })
     wx.request({
-      url: imgurl + '/cardday',
+      url: imgurl + '/gread',
       data: {
         actid: actid,
         openid: key_openid
       },
       success: (res) => {
+        console.log(res)
         that.setData({
-          card_day: res.data.card_day
+          phb_arr:res.data.phb_arr,
+          card_day:res.data.day,
+          gread:res.data.order
         })
       }
-    })
-
-    wx.request({
-      url: imgurl + '/gread',
-      data: {
-        actid: actid,
-        userid: key_userid
-      },
-      success: (res) => {
-        let info = []
-        info = res.data.out
-        for (let i = 0; i < info.length; i++) {
-          var a = i + 1
-          info[i].id = '../../images/' + a + '.png'
-        }
-        if (info.length > 3) {
-          that.setData({
-            phb_arr: [info[0], info[1], info[2]]
-          })
-        } else {
-          that.setData({
-            phb_arr: res.data.out
-          })
-        }
-        that.setData({
-          gread: res.data.myorder,
-        })
-      }
-    })
-  },
-  moreinfo: (e) => {
-    wx.navigateTo({
-      url: 'moreinfo?id=' + e.currentTarget.id,
     })
   },
   onShareAppMessage: function() {
@@ -186,5 +146,11 @@ Page({
       title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
       path: '/pages/index/index'
     }
+  },
+  showImage: function(data) {
+    let showImageUrl = data.currentTarget.dataset.url
+    wx.navigateTo({
+      url: `../message/showimage?url=${showImageUrl}`,
+    })
   }
 })

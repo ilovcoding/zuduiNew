@@ -12,7 +12,6 @@
     "pages/card/getcard",
     "pages/card/cardinfo",
     "pages/card/day",
-    "pages/card/moreinfo",
     "pages/teaminfo/wantjoin",
     "pages/my/userinfo",
     "pages/gfactivity/knowledge/knowledge",

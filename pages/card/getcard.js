@@ -9,7 +9,6 @@ var key_userid
 let date = new Date()
 let day = '' + date.getFullYear() + (date.getMonth() + 1) + date.getDate()
 Page({
-
   data: {
     content: "今日打卡，滴~~",
     imgpath: [],
@@ -40,7 +39,6 @@ Page({
             break;
           }
         }
-        //console.log('patharr', patharr)
         that.setData({
           imgpath: patharr
         })
@@ -49,38 +47,20 @@ Page({
     })
   },
   bindFormSubmit: function(e) {
+    let iscard
     let value_text = e.detail.value.textarea
     if (e.detail.value.textarea) {
-      //
+
     } else {
       wx.showModal({
         title: '提示',
         content: "打卡内容不能为空",
         success: function(res) {}
       })
+      return 0
     }
     key_openid = wx.getStorageSync("key_openid")
     key_userid = wx.getStorageSync("key_userid")
-    if (patharr[0]) {
-      for (let i = 0; i < patharr.length; i++) {
-        wx.uploadFile({
-          url: httpUrl + '/cardimage',
-          filePath: patharr[i],
-          name: 'card_image',
-          formData: {
-            'index': i,
-            'actid': actid,
-            'openid': key_openid,
-            'time': day
-          },
-          success: function(res) {}
-        })
-      }
-      //if结束
-    }
-    patharr = []
-    //图片清零
-
     wx.request({
       url: httpUrl + '/getcard',
       data: {
@@ -90,10 +70,39 @@ Page({
         text: value_text
       },
       success: (res) => {
+        iscard = res.data.iscard
+        console.log('iscard', res)
+        if (iscard === 1) {
+          wx.showModal({
+            title: '提示',
+            content: '您今日已打卡',
+            showCancel: false
+          })
+          return 0
+        }
+        if (patharr[0]) {
+          for (let i = 0; i < patharr.length; i++) {
+            wx.uploadFile({
+              url: httpUrl + '/cardimage',
+              filePath: patharr[i],
+              name: 'card_image',
+              formData: {
+                index: i,
+                actid: actid,
+                openid: key_openid,
+                time: day,
+                imglength: patharr.length
+              },
+              success: function(res) {}
+            })
+          }
+          //if结束
+        }
+        patharr = []
+        wx.switchTab({
+          url: 'card'
+        })
       }
-    })
-    wx.switchTab({
-      url: 'card'
     })
   },
 

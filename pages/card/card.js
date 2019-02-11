@@ -38,7 +38,6 @@ Page({
     })
   },
   cardinfo: function(e) {
-    console.log(e)
     wx.navigateTo({
       url: 'cardinfo?actid=' + e.currentTarget.id + '&iscard=' + e.currentTarget.dataset.iscard,
     })

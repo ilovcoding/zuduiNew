@@ -139,27 +139,6 @@
 
 /* 打卡 底部 滚动 */
 
-.hobby {
-  margin-top: 15rpx;
-  height: 175rpx;
-  border-radius: 8rpx;
-  background-color: #fff;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  color: #c2c2c2;
-  font-weight: bolder;
-  font-size: 24rpx;
-  overflow: hidden;
-}
-
-.hobby image {
-  width: 104rpx;
-  height: 104rpx;
-  border-radius: 50%;
-  float: left;
-  margin: 40rpx;
-}
-
 .btn1 {
   display: inline-block;
   font-size: 30rpx;
