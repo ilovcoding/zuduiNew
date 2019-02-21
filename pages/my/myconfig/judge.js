@@ -134,7 +134,7 @@ Page({
       })
     }, 30000)
     let requestSchool = wx.request({
-      url: 'http://212.64.27.123:8002' + '/judgeid',
+      url: 'https://day.wangminwei.top' + '/judgeid',
       data: {
         stdid: stdid,
         pwd: pwd

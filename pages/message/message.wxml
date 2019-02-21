@@ -23,7 +23,7 @@
     <view class='{{"img"+actArray.actimage.length}}'>
       <image catchtap='showImage' wx:for='{{actArray.actimage}}' src='{{imgurl+"/"+actArray.open_id+"/"+actArray.id+"/"+index+".png"}}' data-url='{{imgurl+"/"+actArray.open_id+"/"+actArray.id+"/"+index+".png"}}'></image>
     </view>
-    <view class='bottom'>
+    <view class='bottom' catchtap='catchaptoNull'>
       <!--参与人数  -->
       <view>
         <image src='../../images/joincount.png'>
@@ -36,9 +36,11 @@
         </image>
         <text>1024</text> -->
       </view>
-      <!-- 转发到朋友圈 -->
+      <!-- 转发-->
       <view>
-        <image src='../../images/friend.png'></image>
+        <button plain='true' catchtap='onShareAppMessage' data-actid='{{actArray.id}}' data-acthead="{{actArray.head}}" open-type='share' class='shareButton'>
+        <image src='../../images/help.png' ></image>
+        </button>
       </view>
     </view>
   </view>

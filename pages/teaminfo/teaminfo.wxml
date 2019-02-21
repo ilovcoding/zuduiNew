@@ -31,7 +31,7 @@
     </view>
   </view>
   <view class='button'>
-    <button wx:if="{{creater==1}}" type='primary' size='mini' bindtap='showJoinUser' data-actid='{{actid}}'>查看加入者</button>
+    <button wx:if="{{creater==1}}" type='primary' size='mini' bindtap='showJoinUser' data-actid='{{actid}}'>加入者名单</button>
   </view>
   <view class='button'>
     <button wx:if="{{!userjoin}}" type='primary' size='mini' bindtap='join' data-type='{{type}}' data-actid='{{actid}}'>我要加入</button>

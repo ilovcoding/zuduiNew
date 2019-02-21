@@ -1,9 +1,12 @@
-<view wx:for="{{array}}"class='all_list' id='{{item.id}}' wx:if="{{item.isend==1}}" catchtap='{{item.type==2?"userinfo":""}}'>
-      <image class='all_image' src='{{item.userid}}'></image>
-      <view style='width:600rpx;'>
-      <view class='itemHead'>{{item.head}}</view>
-      <view class='actText'>{{item.text}}</view>
-      <view class='actText'>{{item.count}}人加入</view>
-      </view>
-      <button class='iscard' catchtap='end' id="{{item.id}}">结束</button>
-    </view>
+<view wx:for="{{array}}" class='all_list' id='{{item.id}}' catchtap='{{item.type==2?"userinfo":""}}'>
+  <image class='all_image' src='{{httpUrl+"/"+item.open_id+"/"+item.id+"/0.png"}}'></image>
+  <view style='width:600rpx;'>
+    <view class='itemHead'>{{item.head}}</view>
+    <view class='actText'>{{item.text}}</view>
+    <view class='actText' wx:if='{{item.review==0}}'>活动状态:审核中</view>
+    <view class='actText' wx:if='{{item.review==1}}'>活动状态:审核通过</view>
+    <view class='actText' wx:if='{{item.review==2}}'>活动状态:审核不通过</view>
+  </view>
+  <button class='iscard' wx:if='{{item.review<2}}' catchtap='end' id="{{item.id}}">结束</button>
+  <button class='iscard' wx:if='{{item.review==2}}' catchtap='showReason' id="{{item.id}}" data-reason='{{item.reason}}'>原因</button>
+</view>

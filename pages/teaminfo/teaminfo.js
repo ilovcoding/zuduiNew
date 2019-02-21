@@ -187,7 +187,9 @@ Page({
         openid: key_openid
       },
       success: (res) => {
-        // console.log(res.data)
+        if(!res.data.cardinfo){
+          return 0
+        }
         var info = res.data.cardinfo
         let infoLength = info.length
         if (res.data.cardinfo.length <= 3) {

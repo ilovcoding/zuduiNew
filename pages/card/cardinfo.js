@@ -11,9 +11,6 @@ let card_time
 let IScard
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     actname: "标题",
     people: " ",
@@ -140,12 +137,6 @@ Page({
         })
       }
     })
-  },
-  onShareAppMessage: function() {
-    return {
-      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
-      path: '/pages/index/index'
-    }
   },
   showImage: function(data) {
     let showImageUrl = data.currentTarget.dataset.url

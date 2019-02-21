@@ -2,14 +2,14 @@
 let key_openid
 let app = getApp()
 var httpUrl = app.globalData.httpUrl;
-var imgurl = app.globalData.httpUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    array: []
+    array: [],
+    httpUrl
   },
 
   /**
@@ -37,12 +37,9 @@ Page({
         openid: key_openid
       },
       success: (res) => {
-        for (let i = 0; i < res.data.arr.length; i++) {
-          res.data.arr[i].userid = imgurl + '/img_' + res.data.arr[i].open_id + '_' + res.data.arr[i].id + '_0.png'
-        }
-        console.log(res.data.arr)
+        console.log(res.data)
         that.setData({
-          array: res.data.arr
+          array: res.data
         })
       }
     })
@@ -56,7 +53,7 @@ Page({
       success: function(res) {
         if (res.confirm) {
           wx.request({
-            url: imgurl + '/endfb',
+            url: httpUrl + '/endfb',
             data: {
               actid: act_id
             },
@@ -88,5 +85,13 @@ Page({
       title: '微信关注微言合工大',
       path: '/pages/index/index'
     }
+  },
+  showReason: function(data){
+    console.log(data)
+    wx.showModal({
+      title: '审核不通过',
+      content: data.currentTarget.dataset.reason,
+      showCancel:false
+    })
   }
 })

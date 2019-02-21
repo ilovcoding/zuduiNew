@@ -102,10 +102,21 @@ Page({
       url: `showimage?url=${showImageUrl}`,
     })
   },
-  onShareAppMessage: function() {
-    return {
-      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
-      path: '/pages/index/index'
+  // customeShare:function(shareInfo){
+  //   console.log(shareInfo)
+  // },
+  onShareAppMessage: function(shareInfo) {
+    if (shareInfo.from == "menu") {
+      return {
+        title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
+        path: '/pages/message/message'
+      }
+    } else {
+      console.log(shareInfo)
+       return {
+         title: `邀您参加${shareInfo.target.dataset.acthead}`,
+        path: `/pages/teaminfo/teaminfo?id=${shareInfo.target.dataset.id}`
+       }
     }
   },
   gfactivity: () => {
@@ -113,10 +124,12 @@ Page({
       url: '../gfactivity/gfactivity',
     })
   },
-  search:function(){
+  search: function() {
     wx.navigateTo({
       url: 'search',
     })
+  },
+  catchaptoNull:function(){
+    console.log('底部空白处点击事件置空提高用户体验')
   }
-
 })

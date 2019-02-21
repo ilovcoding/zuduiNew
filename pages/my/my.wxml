@@ -6,10 +6,11 @@
     <open-data type="userNickName"></open-data>
     <view class='studentid'>
       <text>{{studentName}}：{{studentid}}</text>
-      <view catchtap='bindid'>
+      <!-- 线上要隐藏掉的小功能 -->
+      <!-- <view catchtap='bindid'>
         <text>绑定学号</text>
         <image src='../../images/down.png'></image>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>

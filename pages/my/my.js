@@ -40,9 +40,14 @@ Page({
     })
   },
   mycount: function() {
-    wx.navigateTo({
-      url: './mycount/mycount',
+    wx.showModal({
+      title: '提示',
+      content: '功能开发中,好好学习,天天向上',
+      showCancel:false
     })
+    // wx.navigateTo({
+    //   url: './mycount/mycount',
+    // })
   },
   gywm: function() {
     wx.navigateTo({
