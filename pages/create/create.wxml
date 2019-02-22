@@ -1,6 +1,6 @@
 <form bindsubmit="formSubmit">
   <view class="res-title">
-    <input placeholder="输入活动标题|必填" name="title" maxlength='15'></input>
+    <input placeholder="输入活动标题|必填" name="title" maxlength='15' focus='true'></input>
   </view>
   <view class='text-area'>
     <textarea maxlength="400" name="content" style='height:200rpx;' placeholder='输入活动内容|必填'>

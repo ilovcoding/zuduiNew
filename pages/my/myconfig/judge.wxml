@@ -1,7 +1,7 @@
 <form wx:if="{{studentid}}">
   <input placeholder='输入学号' type='number' maxlength='10' bindblur='save' data-name='stdid'></input>
-  <input placeholder='默认身份证后六位' maxlength='20' bindblur='save' data-name='pwd'></input>
-  <text style="font-size:18rpx">提示密码是新教务系统的密码,没改过新教务系统和信息门户密码的人,默认是身份证后六位</text>
+  <input placeholder='默认身份证后六位' type='password' maxlength='20' bindblur='save' data-name='pwd'></input>
+  <text style="font-size:26rpx;margin:40rpx">提示密码是新教务系统的密码,默认是身份证后六位</text>
   <view>
     <button type='primary' size='mini' open-type='getUserInfo' bindgetuserinfo="judgeid" data-stdid='{{stdid}}' data-pwd='{{pwd}}'>绑定学号</button>
   </view>
