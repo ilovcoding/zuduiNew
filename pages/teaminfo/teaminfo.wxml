@@ -36,18 +36,4 @@
   <view class='button'>
     <button wx:if="{{!userjoin}}" type='primary' size='mini' bindtap='join' data-type='{{type}}' data-actid='{{actid}}'>我要加入</button>
   </view>
-  <view wx:if="{{acttype==1}}">
-    <view style='margin-left:40rpx;font-size:28rpx;color:#5f6874'>
-      打卡动态
-    </view>
-    <view class='hobby' wx:for="{{dtarr}}">
-      <image src='{{active.image}}'></image>
-      <view style='margin-top:40rpx;font-size:24rpx'>
-        <text style='margin-right:20rpx'>{{active.name}}</text>
-        <text>{{active.cardtime}}打卡</text>
-        <view>{{active.cardtext}}</view>
-      </view>
-    </view>
-    <button class='more' bindtap='more' wx:if="{{!userjoin}}">显示更多</button>
-  </view>
 </view>

@@ -22,11 +22,3 @@
     border: 1rpx #1aad19 solid;
     background-color: #1aad19
 }
-.gfactive{
-  color:#5f6874 ;
-  font-size: 30rpx;
-  font-weight: bolder;
-  position: absolute;
-  left: 250rpx;
-  top: 60rpx;
-}

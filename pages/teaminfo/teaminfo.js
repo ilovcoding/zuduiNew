@@ -26,7 +26,7 @@ Page({
         content: '未绑定学号无法查看活动详情',
         success: (res) => {
           if (res.confirm) {
-            wx.navigateTo({
+            wx.redirectTo({
               url: '../my/myconfig/myconfig',
             })
           } else {
@@ -178,43 +178,12 @@ Page({
     return 0
   },
   onShow: function() {
-    let that = this
-    key_openid = wx.getStorageSync("key_openid")
-    wx.request({
-      url: imgurl + '/cardinfo',
-      data: {
-        actid: actid,
-        openid: key_openid
-      },
-      success: (res) => {
-        if(!res.data.cardinfo){
-          return 0
-        }
-        var info = res.data.cardinfo
-        let infoLength = info.length
-        if (res.data.cardinfo.length <= 3) {
-          that.setData({
-            dtarr: res.data.cardinfo,
-          })
-        } else {
-          that.setData({
-            dtarr: [res.data.cardinfo[infoLength - 1], res.data.cardinfo[infoLength - 2], res.data.cardinfo[infoLength - 3]],
-          })
-        }
-      }
-    })
   },
   showImage: function(data) {
     let showImageUrl = data.currentTarget.dataset.url
     wx.navigateTo({
       url: `../message/showimage?url=${showImageUrl}`,
     })
-  },
-  onShareAppMessage: function() {
-    return {
-      title: '微信关注微言合工大',
-      path: '/pages/index/index'
-    }
   },
   joinuser: function({
     openid,

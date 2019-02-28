@@ -1,6 +1,3 @@
-/* pages/message/message.wxss */
-
-/* 导航栏 样式 */
 .searchNav{
   display: flex;
   flex-direction: column;

@@ -1,7 +1,0 @@
-<!--pages/card/getcard.wxml-->
-<view class='head'>
-  <text>照片的故事</text>
-</view>
-<text class='content'>{{study}}</text>
-<view class='line'></view>
-<image src='{{item}}' wx:for='{{imgArr}}' ></image>

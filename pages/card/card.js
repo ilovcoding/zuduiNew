@@ -41,16 +41,5 @@ Page({
     wx.navigateTo({
       url: 'cardinfo?actid=' + e.currentTarget.id + '&iscard=' + e.currentTarget.dataset.iscard,
     })
-  },
-  onShareAppMessage: function() {
-    return {
-      title: '寻找志同道合的你·明理苑大学生网络文化工作室出品',
-      path: '/pages/index/index'
-    }
-  },
-  gfactive: function() {
-    wx.navigateTo({
-      url: '../gfactivity/gfactivity',
-    })
   }
 })

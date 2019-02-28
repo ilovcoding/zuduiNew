@@ -38,11 +38,6 @@
   <text style='font-size: 32rpx'>我的参与</text>
   <image src='../../images/myright.png' class='right'></image>
 </view>
-<view class='wdfb' bindtap='mycount'>
-  <image src='../../images/mycount.png'></image>
-  <text style='font-size: 32rpx'>我的积分</text>
-  <image src='../../images/myright.png' class='right'></image>
-</view>
 <view class='wdfb' bindtap='gywm'>
   <image src='../../images/gywm.png'></image>
   <text style='font-size: 32rpx'>关于我们</text>

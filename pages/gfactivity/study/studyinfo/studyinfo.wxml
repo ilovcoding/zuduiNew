@@ -1,7 +1,0 @@
-<!--pages/card/getcard.wxml-->
-<view class='head'>
-  <text>学习宣言</text>
-</view>
-<text class='content'>{{study}}</text>
-<view class='line'></view>
-<image src='{{imgUrl}}' ></image>

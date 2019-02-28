@@ -1,8 +1,3 @@
-<!-- 官方活动入口 -->
-<!-- <button class='all_list' catchtap='gfactive'>
-  <image class='all_image' src='../../images/gfactivity.jpg'></image>
-  <view class='gfactive'>打卡一月，成为更好的自己</view>
-</button> -->
 <view wx:for="{{array}}" class='all_list' catchtap='cardinfo' data-iscard='{{item.iscard}}' id='{{item.id}}'>
   <image class='all_image' src='{{imgurl+"/"+item.active.open_id+"/"+item.active.id+"/0.png"}}'></image>
   <view style='width:600rpx;'>

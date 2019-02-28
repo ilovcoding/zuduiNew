@@ -121,22 +121,6 @@
   height: 100vh;
 }
 
-.gfinfo {
-  margin: 40rpx;
-  font-size: 24rpx;
-  font-family: Robotp;
-  color: #5f6874;
-  word-break: break-all;
-  text-indent: 48rpx;
-}
-
-.gfjoin {
-  margin: 40rpx;
-  font-family: Robotp;
-  font-size: 24rpx;
-  color: #c2c2c2;
-}
-
 /* 打卡 底部 滚动 */
 
 .btn1 {
@@ -176,34 +160,4 @@
   display: block;
   width: 100%;
   border-top: 1rpx solid #b5b5b5;
-}
-
-.gftime {
-  font-size: 24rpx;
-  color: #5f6874;
-  margin-left: 40rpx;
-  font-weight: bolder;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-}
-
-.gftime text {
-  display: inline-block;
-  margin-right: 20rpx;
-}
-
-.gftitle {
-  font-size: 30rpx;
-  font-weight: bold;
-  margin-left: 40rpx;
-  padding-top: 50rpx;
-}
-
-.gfinfoback {
-  /* margin-top: -20rpx; */
-  /* padding-top: 10rpx; */
-  padding: 10rpx;
-  margin-left: 0rpx;
-  width: 100%;
-  background: rgb(245, 245, 245);
 }

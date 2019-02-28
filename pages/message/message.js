@@ -1,15 +1,9 @@
-let user_info
 let app = getApp()
 let imgurl = app.globalData.httpUrl
 Page({
   data: {
     _num: 1,
     array: [],
-    gfimg: [
-      'https://www.wangminwei.top/gfactive.jpg',
-      '../../images/introduce.jpg'
-    ],
-    gfactiveImg: 'https://www.wangminwei.top/gfactive.jpg',
     imgurl
   },
   onLoad: function() {
@@ -47,21 +41,10 @@ Page({
 
   change_band: function(e) {
     let actType = e.target.dataset.num
-    if (actType == '4') {
-      //明理苑活动的时候
-      this.setData({
-        _num: e.target.dataset.num,
-        array: [],
-        mly: true
-      })
-    } else {
-      this.setData({
-        _num: e.target.dataset.num,
-        array: [],
-        mly: false
-      })
-    }
-
+    this.setData({
+      _num: e.target.dataset.num,
+      array: [],
+    })
     switch (actType) {
       case '1':
         this.activity({
@@ -102,9 +85,6 @@ Page({
       url: `showimage?url=${showImageUrl}`,
     })
   },
-  // customeShare:function(shareInfo){
-  //   console.log(shareInfo)
-  // },
   onShareAppMessage: function(shareInfo) {
     if (shareInfo.from == "menu") {
       return {
@@ -113,23 +93,18 @@ Page({
       }
     } else {
       console.log(shareInfo)
-       return {
-         title: `邀您参加${shareInfo.target.dataset.acthead}`,
+      return {
+        title: `邀您参加${shareInfo.target.dataset.acthead}`,
         path: `/pages/teaminfo/teaminfo?id=${shareInfo.target.dataset.id}`
-       }
+      }
     }
-  },
-  gfactivity: () => {
-    wx.navigateTo({
-      url: '../gfactivity/gfactivity',
-    })
   },
   search: function() {
     wx.navigateTo({
       url: 'search',
     })
   },
-  catchaptoNull:function(){
+  catchaptoNull: function() {
     console.log('底部空白处点击事件置空提高用户体验')
   }
 })

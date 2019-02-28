@@ -1,7 +1,0 @@
-<!--pages/card/getcard.wxml-->
-<view class='head'>
-  <text>时事政治</text>
-</view>
-<text class='gfinfo'>{{study}}</text>
-<view class='line'></view>
-<image src='{{imgUrl}}' ></image>

@@ -1,21 +1,15 @@
-// pages/card/cardinfo.js
 let app = getApp()
-let imgarr = []
 let imgurl = app.globalData.httpUrl
 let actid
 let actinfo
 let key_openid
 let key_userid
 let key_userimg
-let card_time
-let IScard
 Page({
-
   data: {
     actname: "标题",
     people: " ",
     time: " ",
-    imgUrls: imgarr,
     card_day: 0,
     gread: 0,
     all_user: 0,
@@ -51,30 +45,15 @@ Page({
       url: 'getcard?actid=' + actid,
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(data) {
     let that = this
-    imgarr = []
     actid = data.actid
-    IScard = data.iscard
     key_openid = wx.getStorageSync("key_openid")
     key_userid = wx.getStorageSync("key_userid")
     key_userimg = wx.getStorageSync("key_userimg")
     this.setData({
       userimage: key_userimg,
-      IScard
     })
-    if (IScard == 0) {
-      this.setData({
-        lastText: "今日打卡"
-      })
-    } else {
-      this.setData({
-        lastText: "已打卡"
-      })
-    }
     wx.request({
       url: app.globalData.httpUrl + '/actinfo',
       data: {
@@ -95,6 +74,7 @@ Page({
         })
       }
     })
+    //打卡动态
     wx.request({
       url: imgurl + '/cardinfo',
       data: {
@@ -108,6 +88,7 @@ Page({
       }
     })
   },
+  //查看和你一起打卡的人的头像
   onShow: function() {
     let that = this
     wx.request({
@@ -122,6 +103,7 @@ Page({
         })
       }
     })
+    //排行榜
     wx.request({
       url: imgurl + '/gread',
       data: {
